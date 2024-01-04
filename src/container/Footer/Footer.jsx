@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { images } from '../../constants';
+import { images, emailUrl } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../utils/client';
 import './Footer.scss';
@@ -33,6 +33,15 @@ const Footer = () => {
 
     try {
       await client.create(contact);
+      // fetch email url post request
+      await fetch(emailUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+      setIsLoading(false);
       setIsFormSubmitted(true);
     } catch (err) {
       console.log(err);
