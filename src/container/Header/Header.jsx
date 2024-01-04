@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { RiShareBoxLine } from 'react-icons/ri';
 import { GoArrowDownRight } from 'react-icons/go';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -30,14 +31,14 @@ const Header = () => {
         <img src={images.noah} alt="profile_bg" />
       </div>
       <div className="item-c">
-        <img
-          src="https://i.insider.com/61dc71461025b20018bb0597?width=700"
-          alt=""
-        />
+        <button class="hero__btn">Hire Me</button>
+        <button class="hero__btn-outline">
+          Resume <RiShareBoxLine />
+        </button>
       </div>
-      <div className="item-d">
+      {/* <div className="item-d">
         <GoArrowDownRight />
-      </div>
+      </div> */}
     </div>
     // <div className="app__header app__flex">
     //   <motion.div

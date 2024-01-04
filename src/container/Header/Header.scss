@@ -18,8 +18,8 @@
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
         "a a a b b b"
-        "a a a b b b"
-        "c c d b b b";
+        "c c c b b b"
+        "d d d b b b";
     grid-gap: 1.2rem;
     height: 100%;
     width: 100%;
@@ -69,6 +69,53 @@
     }
     .item-c {
         grid-area: c;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2rem;
+
+        .hero__btn {
+            margin-top: 2rem;
+            outline: none;
+            padding: 1rem 2rem;
+            border: 3px solid var(--secondary-color);
+            border-radius: 15px;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            font-family: var(--font-base);
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: var(--white-color);
+            }
+        }
+        .hero__btn-outline {
+            margin-top: 2rem;
+            outline: none;
+            padding: 1rem 2rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            background-color: transparent;
+            color: var(--secondary-color);
+            font-family: var(--font-base);
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            svg {
+                margin-left: 0.2rem;
+                position: relative;
+                top: 0.2rem;
+            }
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: var(--white-color);
+            }
+        }
     }
     .item-d {
         grid-area: d;
