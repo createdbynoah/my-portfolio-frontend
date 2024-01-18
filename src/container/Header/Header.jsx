@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { RiShareBoxLine } from 'react-icons/ri';
 import { GoArrowDownRight } from 'react-icons/go';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { images } from '../../constants';
@@ -19,6 +20,7 @@ const scaleVariants = {
 };
 
 const Header = () => {
+  const isMobile = useMediaQuery('(max-width: 900px)');
   return (
     <div className="grid__main">
       <div className="item-a">
@@ -26,16 +28,28 @@ const Header = () => {
           Hi, I'm <span>Noah</span>.
         </h1>
         <h2>Full-Stack Developer</h2>
+        <h3>
+          Excited by strategic and excellent form + function. <br />
+          Attentive to detail and passionate about thoughtful design.
+        </h3>
+        <div className="buttons">
+          <button className="hero__btn">Hire Me</button>
+          <button className="hero__btn-outline">
+            Resume <RiShareBoxLine />
+          </button>
+        </div>
+        {isMobile && (
+          <div className="item-a__img">
+            <img src={images.noahSquare} alt="profile_circle" />
+          </div>
+        )}
       </div>
-      <div className="item-b">
-        <img src={images.noah} alt="profile_bg" />
-      </div>
-      <div className="item-c">
-        <button className="hero__btn">Hire Me</button>
-        <button className="hero__btn-outline">
-          Resume <RiShareBoxLine />
-        </button>
-      </div>
+      {!isMobile && (
+        <div className="item-b">
+          <img src={images.noah} alt="profile_bg" />
+        </div>
+      )}
+
       {/* <div className="item-d">
         <GoArrowDownRight />
       </div> */}

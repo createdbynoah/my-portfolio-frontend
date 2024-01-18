@@ -24,6 +24,7 @@ import about03 from '../assets/images/about03.png';
 import about04 from '../assets/images/about04.png';
 
 import noah from '../assets/images/noah.png';
+import noahSquare from '../assets/images/noah-square.png';
 import profile from '../assets/images/profile.png';
 import circle from '../assets/images/circle.svg';
 import logo from '../assets/images/noahrodgers-full.svg';
@@ -52,6 +53,7 @@ export default {
   mu5,
   node,
   noah,
+  noahSquare,
   python,
   react,
   redux,
