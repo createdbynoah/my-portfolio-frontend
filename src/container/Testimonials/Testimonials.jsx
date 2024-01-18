@@ -68,7 +68,7 @@ const Testimonial = () => {
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img src={currTestimonial.imageUrl} alt="testimonial" />
+            <img src={currTestimonial.imageUrl} alt="testimonial-image" />
             <div className="app__testimonial-content">
               <p className="p-text">
                 {testimonialText}
@@ -116,7 +116,7 @@ const Testimonial = () => {
           </div>
         </>
       )}
-      <div className="app__testimonial-brands app__flex">
+      {/* <div className="app__testimonial-brands app__flex">
         {brands.map((brand) => (
           <motion.div
             whileInView={{ opacity: [0, 1] }}
@@ -126,7 +126,7 @@ const Testimonial = () => {
             <img src={urlFor(brand.imageUrl)} alt={brand.name} />
           </motion.div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };
