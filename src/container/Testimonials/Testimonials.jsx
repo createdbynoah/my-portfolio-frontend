@@ -10,6 +10,7 @@ const Testimonial = () => {
   const [brands, setBrands] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [testimonialText, setTestimonialText] = useState('');
 
   const handleClick = (index) => {
     setCurrentIndex(index);
@@ -20,8 +21,25 @@ const Testimonial = () => {
     const brandsQuery = '*[_type == "brands"]';
 
     const getTestimonials = async () => {
-      const testimonials = await client.fetch(testimonialsQuery);
+      const raw = await client.fetch(testimonialsQuery);
+      const testimonials = raw.map((testimonial) => {
+        return {
+          ...testimonial,
+          imageUrl: urlFor(testimonial.imageUrl),
+          short:
+            testimonial.testimonial.length > 350
+              ? testimonial.testimonial.slice(0, 350) + '...'
+              : null,
+          expanded: false,
+        };
+      });
+      console.log(testimonials);
       setTestimonials(testimonials);
+      setTestimonialText(
+        testimonials[0].short
+          ? testimonials[0].short
+          : testimonials[0].testimonial
+      );
     };
 
     const getBrands = async () => {
@@ -35,14 +53,35 @@ const Testimonial = () => {
 
   const currTestimonial = testimonials[currentIndex];
 
+  const handleReadMore = (index) => {
+    if (testimonials[index].expanded) {
+      setTestimonialText(testimonials[index].short);
+      testimonials[index].expanded = false;
+    } else {
+      setTestimonialText(testimonials[index].testimonial);
+      testimonials[index].expanded = true;
+    }
+  };
+
   return (
     <>
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img src={urlFor(currTestimonial.imageUrl)} alt="testimonial" />
+            <img src={currTestimonial.imageUrl} alt="testimonial" />
             <div className="app__testimonial-content">
-              <p className="p-text">{currTestimonial.testimonial}</p>
+              <p className="p-text">
+                {testimonialText}
+                {currTestimonial.short && (
+                  <span
+                    className="p-text"
+                    onClick={() => handleReadMore(currentIndex)}
+                  >
+                    {' ' +
+                      (currTestimonial.expanded ? 'Read Less' : 'Read More')}
+                  </span>
+                )}
+              </p>
               <div>
                 <h4 className="bold-text">{currTestimonial.name}</h4>
                 <h5 className="p-text">{currTestimonial.company}</h5>
