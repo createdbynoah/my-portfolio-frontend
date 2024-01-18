@@ -18,3 +18,13 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.shadow {
+  background-color: var(--background-opaque);
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+  backdrop-filter: blur(12px);
+}

@@ -1,7 +1,19 @@
+/* https://www.realtimecolors.com/?colors=0f1517-f5f9fa-5a9cb5-98cee2-57bbdf&fonts=Poppins-Poppins */
+
+:root {
+  --linearPrimarySecondary: linear-gradient(#5a9cb5, #98cee2);
+--linearPrimaryAccent: linear-gradient(#5a9cb5, #57bbdf);
+--linearSecondaryAccent: linear-gradient(#98cee2, #57bbdf);
+--radialPrimarySecondary: radial-gradient(#5a9cb5, #98cee2);
+--radialPrimaryAccent: radial-gradient(#5a9cb5, #57bbdf);
+--radialSecondaryAccent: radial-gradient(#98cee2, #57bbdf);
+
+}
+
 :root[data-theme="light"] {
     --text: #0f1517;
     --background: #f5f9fa;
-    --background-opaque: rgba(245, 249, 250,0.9);
+    --background-opaque: rgba(245, 249, 250,0.85);
     --primary: #5a9cb5;
     --secondary: #98cee2;
     --accent: #57bbdf;
@@ -9,7 +21,7 @@
   :root[data-theme="dark"] {
     --text: #e9eff1;
     --background: #05090a;
-    --background-opaque: rgba(5, 9, 10,0.9)
+    --background-opaque: rgba(5, 9, 10,0.85)
     --primary: #4a8da5;
     --secondary: #1d5467;
     --accent: #2083a7;
@@ -19,7 +31,7 @@
     :root {
       --text: #0f1517;
       --background: #f5f9fa;
-      --background-opaque: rgba(245, 249, 250,0.9);
+      --background-opaque: rgba(245, 249, 250,0.85);
       --primary: #5a9cb5;
       --secondary: #98cee2;
       --accent: #57bbdf;
@@ -30,7 +42,7 @@
 
       --text: #e9eff1;
       --background: #05090a;
-      --background-opaque: rgba(5, 9, 10,0.9);
+      --background-opaque: rgba(5, 9, 10,0.85);
       --primary: #4a8da5;
       --secondary: #1d5467;
       --accent: #2083a7;
