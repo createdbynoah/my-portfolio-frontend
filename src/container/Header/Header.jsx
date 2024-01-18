@@ -31,8 +31,8 @@ const Header = () => {
         <img src={images.noah} alt="profile_bg" />
       </div>
       <div className="item-c">
-        <button class="hero__btn">Hire Me</button>
-        <button class="hero__btn-outline">
+        <button className="hero__btn">Hire Me</button>
+        <button className="hero__btn-outline">
           Resume <RiShareBoxLine />
         </button>
       </div>

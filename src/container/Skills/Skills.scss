@@ -43,7 +43,7 @@
         width: 90px;
         height: 90px;
         border-radius: 50%;
-        background-color: var(--white-color);
+        background-color: var(--background-200);
 
         img {
             width: 50%;
@@ -119,7 +119,7 @@
     
     p {
         font-weight: 400;
-        color: var(--gray-color);
+        color: var(--text-600);
         margin-top: 5px;
     }
 }
@@ -129,7 +129,7 @@
 
     p {
         font-weight: 800;
-        color: var(--secondary-color);
+        color: var(--primary);
     }
 
     @media screen and (max-width: 450px) {
@@ -140,11 +140,11 @@
 
 .react-tooltip.skills-tooltip {
     max-width: 300px;
-    background-color: var(--white-color);
-    color: var(--gray-color);
+    background-color: var(--background-100);
+    color: var(--text-600);
     opacity: 1;
     box-shadow: 0 0 25px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 1rem;
     text-align: center;
     line-height: 1.5;

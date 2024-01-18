@@ -4,10 +4,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(2525, 255, 255, 0.25);
+  background: var(--background-opaque);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
   z-index: 2;
 }
@@ -18,8 +17,8 @@
   align-items: center;
 
   img {
-    width: 90px;
-    height: 20px;
+    height: 28px;
+    width: auto;
 
     @media screen and (min-width: 2000px) {
       width: 180px;
@@ -50,7 +49,7 @@
     }
 
     a {
-      color: var(--gray-color);
+      color: var(--text-800);
       text-decoration: none;
       flex-direction: column;
       text-transform: uppercase;
@@ -58,13 +57,13 @@
       transition: all 0.2s ease-in-out;
 
       &:hover {
-        color: var(--secondary-color);
+        color: var(--secondary);
       }
     }
 
     &:hover {
       div {
-        background: var(--secondary-color);
+        background: var(--secondary);
       }
     }
   }
@@ -82,14 +81,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--secondary-color);
+  background: var(--secondary);
 
   cursor: pointer;
 
   svg {
     width: 70%;
     height: 70%;
-    color: var(--white-color);
+    color: var(--background);
   }
 
   div {
@@ -108,17 +107,14 @@
     align-items: flex-end;
     flex-direction: column;
 
-    background: url('../../assets/bgWhite.png');
-    background-color: var(--white-color);
-    background-size: cover;
-    background-repeat: repeat;
+    background-color: var(--background);
 
     box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
 
     svg {
       width: 35px;
       height: 35px;
-      color: var(--secondary-color);
+      color: var(--secondary);
       margin: 0.5rem 1rem;
     }
 
@@ -138,7 +134,7 @@
         margin: 1rem;
 
         a {
-          color: var(--gray-color);
+          color: var(--text-700);
           text-decoration: none;
           text-transform: uppercase;
           font-weight: 500;
@@ -146,7 +142,7 @@
           transition: all 0.2s ease-in-out;
 
           &:hover {
-            color: var(--secondary-color);
+            color: var(--secondary);
           }
         }
       }
