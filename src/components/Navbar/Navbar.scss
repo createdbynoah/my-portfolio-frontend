@@ -4,26 +4,36 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: var(--background-opaque);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: var(--accent-50);
   position: fixed;
-  z-index: 2;
+  z-index: 5;
+  transition: all 0.2s ease-in-out;
+  
 }
 
 .app__navbar-logo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  top: 3px;
 
   img {
     height: 28px;
     width: auto;
 
     @media screen and (min-width: 2000px) {
-      width: 180px;
-      height: 40px;
+      height: 36px;
+      width: auto;
     }
+  }
+}
+
+#nav-links .p-text {
+  font-size: 1rem;
+  @media screen and (min-width: 2000px) {
+    font-size: 1.25rem;
+    
   }
 }
 
@@ -44,7 +54,6 @@
       height: 5px;
       background: transparent;
       border-radius: 50px;
-
       margin-bottom: 5px;
     }
 
@@ -58,6 +67,7 @@
 
       &:hover {
         color: var(--secondary);
+
       }
     }
 
@@ -71,6 +81,7 @@
   @media screen and (max-width: 900px) {
     display: none;
   }
+
 }
 
 .app__navbar-menu {
