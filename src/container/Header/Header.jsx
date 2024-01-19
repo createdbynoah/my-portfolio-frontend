@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { RiShareBoxLine } from 'react-icons/ri';
+import { FaLinkedin } from 'react-icons/fa';
 import { GoArrowDownRight } from 'react-icons/go';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -20,6 +21,19 @@ const scaleVariants = {
 };
 
 const Header = () => {
+  const [isHovering, setIsHovering] = useState({
+    linkedin: false,
+    resume: false,
+  });
+
+  const handleEnter = (key) => {
+    setIsHovering({ ...isHovering, [key]: true });
+  };
+
+  const handleLeave = (key) => {
+    setIsHovering({ ...isHovering, [key]: false });
+  };
+
   const isMobile = useMediaQuery('(max-width: 900px)');
   return (
     <div className="grid__main">
@@ -33,10 +47,24 @@ const Header = () => {
           Attentive to detail and passionate about thoughtful design.
         </h3>
         <div className="buttons">
-          <button className="hero__btn">Hire Me</button>
-          <button className="hero__btn-outline">
-            Resume <RiShareBoxLine />
-          </button>
+          <a
+            className="hero__btn"
+            href="https://www.linkedin.com/in/noahrodgers10/"
+            target="_blank"
+            onMouseEnter={() => handleEnter('linkedin')}
+            onMouseLeave={() => handleLeave('linkedin')}
+          >
+            Say Hello{isHovering.linkedin && <FaLinkedin />}
+          </a>
+          <a
+            className="hero__btn outline"
+            href=""
+            target="_blank"
+            onMouseEnter={() => handleEnter('resume')}
+            onMouseLeave={() => handleLeave('resume')}
+          >
+            Resume{isHovering.resume && <RiShareBoxLine />}
+          </a>
         </div>
         {isMobile && (
           <div className="item-a__img">
