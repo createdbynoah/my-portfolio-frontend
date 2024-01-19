@@ -27,8 +27,10 @@ import noah from '../assets/images/noah.png';
 import noahSquare from '../assets/images/noah-square.png';
 import profile from '../assets/images/profile.png';
 import circle from '../assets/images/circle.svg';
-import logo from '../assets/images/noahrodgers-full.svg';
-import mark from '../assets/images/noahrodgers-initials.svg';
+import logoLight from '../assets/images/logos/noahrodgers-full-light.svg';
+import logoDark from '../assets/images/logos/noahrodgers-full-dark.svg';
+import markLight from '../assets/images/logos/noahrodgers-initials-light.svg';
+import markDark from '../assets/images/logos/noahrodgers-initials-dark.svg';
 
 import adidas from '../assets/images/adidas.png';
 import amazon from '../assets/images/amazon.png';
@@ -66,8 +68,10 @@ export default {
   about04,
   profile,
   circle,
-  logo,
-  mark,
+  logoLight,
+  logoDark,
+  markLight,
+  markDark,
   adidas,
   amazon,
   asus,

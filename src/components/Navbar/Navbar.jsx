@@ -29,11 +29,22 @@ const Navbar = () => {
   }, []);
 
   const isMobile = useMediaQuery('(max-width: 900px)');
+  const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  let logo;
+  if (isDarkMode && isMobile) {
+    logo = images.markDark;
+  } else if (isDarkMode && !isMobile) {
+    logo = images.logoDark;
+  } else if (!isDarkMode && isMobile) {
+    logo = images.markLight;
+  } else {
+    logo = images.logoLight;
+  }
 
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={isMobile ? images.mark : images.logo} alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <ul className="app__navbar-links" id="nav-links">
         {['home', 'about', 'work', 'testimonials', 'contact'].map((item) => (
