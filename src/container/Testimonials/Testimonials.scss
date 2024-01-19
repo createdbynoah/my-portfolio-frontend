@@ -5,7 +5,7 @@
 }
 
 .app__testimonial-item {
-    width: 60%;
+    width: 65%;
     min-height: 320px;
     background-color: var(--text-white);
     display: flex;
@@ -44,11 +44,10 @@
         justify-content: center;
 
         img {
-            width: 125px;
-            height: 125px;
+            width: 100px;
+            height: 100px;
             align-self: center;
             margin-top: 0;
-            margin-bottom: 2rem;
         }
     }
 }
@@ -75,13 +74,38 @@
     h4 {
         font-weight: 600;
         color: var(--primary);
-        margin-top: 2rem;
+        font-size: 1.3rem;
     }
 
     h5 {
         font-weight: 400;
         color: var(--text-600);
         margin-top: 5px;
+
+        a {
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+    .app__testimonial-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+        margin-top: 1.5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 0 0.75rem; 
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        
     }
 }
 

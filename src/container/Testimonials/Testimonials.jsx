@@ -68,23 +68,30 @@ const Testimonial = () => {
       {testimonials.length && (
         <>
           <div className="app__testimonial-item app__flex">
-            <img src={currTestimonial.imageUrl} alt="testimonial-image" />
             <div className="app__testimonial-content">
               <p className="p-text">
                 {testimonialText}
                 {currTestimonial.short && (
-                  <span
+                  <a
                     className="p-text"
                     onClick={() => handleReadMore(currentIndex)}
                   >
                     {' ' +
                       (currTestimonial.expanded ? 'Read Less' : 'Read More')}
-                  </span>
+                  </a>
                 )}
               </p>
-              <div>
-                <h4 className="bold-text">{currTestimonial.name}</h4>
-                <h5 className="p-text">{currTestimonial.company}</h5>
+              <div className="app__testimonial-footer">
+                <a href={currTestimonial.linkedInUrl} target="_blank">
+                  <img src={currTestimonial.imageUrl} alt="testimonial-image" />
+                </a>
+                <div className="app__testimonial-author">
+                  <h4 className="bold-text">{currTestimonial.name}</h4>
+                  <h5 className="p-text">
+                    {currTestimonial.jobTitle} —{' '}
+                    <span>{currTestimonial.company}</span>
+                  </h5>
+                </div>
               </div>
             </div>
           </div>
