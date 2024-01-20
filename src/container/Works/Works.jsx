@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import { IoMdCode } from 'react-icons/io';
+
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -39,7 +41,7 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-        My Creative <span>Portfolio</span> Section
+        Things I've <span>Made</span>
       </h2>
       <div className="app__work-filter">
         {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map(
@@ -76,7 +78,7 @@ const Work = () => {
               >
                 <a href={work.projectLink} target="_blank" rel="noreferrer">
                   <motion.div
-                    whileHover={{ scale: [1, 0.9] }}
+                    // whileHover={{ scale: 0.9 }}
                     whileInView={{ scale: [0, 1] }}
                     transition={{ duration: 0.25 }}
                     className="app__flex"
@@ -86,12 +88,12 @@ const Work = () => {
                 </a>
                 <a href={work.codeLink} target="_blank" rel="noreferrer">
                   <motion.div
-                    whileHover={{ scale: [1, 0.9] }}
+                    // whileHover={{ scale: [1, 0.9] }}
                     whileInView={{ scale: [0, 1] }}
                     transition={{ duration: 0.25 }}
                     className="app__flex"
                   >
-                    <AiFillGithub />
+                    <IoMdCode />
                   </motion.div>
                 </a>
               </motion.div>
