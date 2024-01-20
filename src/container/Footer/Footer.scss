@@ -23,7 +23,7 @@
         padding: 1rem;
         border-radius: 10px;
         cursor: pointer;
-        background-color: #fef4f5;
+        background-color: var(--background-100);
 
         transition: all 0.3s ease-in-out;
 
@@ -58,7 +58,7 @@
 }
 
 .app__footer-cards .app__footer-card:last-child {
-    background-color: #f2f7fb
+    background-color: var(--primary-300);
 }
 
 .app__footer-form {
@@ -71,7 +71,7 @@
         margin: 0.75rem 0;
         border-radius: 10px;
         cursor: pointer;
-        background-color: var(--primary-color);
+        background-color: var(--background-100);
 
         transition: all 0.3s ease-in-out;
 
@@ -80,10 +80,14 @@
             padding: 0.95rem;
             border: none;
             border-radius: 7px;
-            background-color: var(--primary-color);
+            background-color: var(--background-100);
             font-family: var(--font-base);
-            color: var(--secondary-color);
+            color: var(--text-800);
             outline: none;
+
+            &::placeholder {
+                color: var(--text-300);
+            }
         }
 
         textarea {
@@ -91,7 +95,7 @@
         }
 
         &:hover {
-            box-shadow: 0 0 25px var(--primary-color);
+            box-shadow: 0 0 25px var(--primary-100);
         }
     }
 
@@ -99,9 +103,9 @@
         padding: 1rem 2rem;
         border-radius: 10px;
         border: none;
-        background-color: var(--secondary-color);
+        background-color: var(--accent);
         font-weight: 500;
-        color: var(--white-color);
+        color: var(--text-white);
         outline: none;
         margin: 2rem 0 0 0;
         font-family: var(--font-base);
