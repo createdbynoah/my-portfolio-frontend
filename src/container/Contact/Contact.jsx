@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { images, emailUrl } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../utils/client';
-import './Footer.scss';
+import './Contact.scss';
 
-const Footer = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -110,7 +110,7 @@ const Footer = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Footer, 'app__footer'),
+  MotionWrap(Contact, 'app__footer'),
   'contact',
   'app__whitebg'
 );
