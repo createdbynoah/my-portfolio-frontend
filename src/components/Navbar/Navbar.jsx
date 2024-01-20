@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { NavHashLink } from 'react-router-hash-link';
 
 import { images } from '../../constants';
 import { SocialMedia } from '../../components';
@@ -10,6 +11,7 @@ import './Navbar.scss';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [activeLink, setActiveLink] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,16 @@ const Navbar = () => {
         {['home', 'about', 'work', 'testimonials', 'contact'].map((item) => (
           <li className="app__flex p-text pointer" key={`link-${item}`}>
             <div></div>
-            <a href={`#${item}`}>{item}</a>
+
+            <NavHashLink
+              to={`/#${item}`}
+              id={`link-${item}`}
+              smooth
+              className={activeLink === item ? 'active-link' : ''}
+              onClick={() => setActiveLink(`${item}`)}
+            >
+              {item}
+            </NavHashLink>
           </li>
         ))}
       </ul>
@@ -66,7 +77,9 @@ const Navbar = () => {
               {['home', 'about', 'works', 'testimonials', 'contact'].map(
                 (item) => (
                   <li key={item}>
-                    <a href={`#${item}`}>{item}</a>
+                    <NavHashLink smooth to={`/#${item}`}>
+                      {item}
+                    </NavHashLink>
                   </li>
                 )
               )}
