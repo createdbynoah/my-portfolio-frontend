@@ -11,6 +11,7 @@
 }
 
 :root[data-theme="light"] {
+    --white: #ffffff;
     --text: #0f1517;
     --background: #f5f9fa;
     --background-opaque: rgba(245, 249, 250,0.85);
@@ -19,6 +20,7 @@
     --accent: #57bbdf;
   }
   :root[data-theme="dark"] {
+    --white: #ffffff;
     --text: #e9eff1;
     --background: #05090a;
     --background-opaque: rgba(5, 9, 10,0.85)
@@ -29,6 +31,7 @@
 
   @media (prefers-color-scheme: light) {
     :root {
+      --white: #ffffff;
       --text: #0f1517;
       --background: #f5f9fa;
       --background-opaque: rgba(245, 249, 250,0.85);
@@ -39,7 +42,7 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
-
+      --white: #ffffff;
       --text: #e9eff1;
       --background: #05090a;
       --background-opaque: rgba(5, 9, 10,0.85);
