@@ -17,6 +17,14 @@
 
   display: flex;
   flex-direction: row;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.col {
+    flex-direction: column;
+  }
 }
 
 .app__flex {
