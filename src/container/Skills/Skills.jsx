@@ -3,30 +3,12 @@ import { motion } from 'framer-motion';
 import { Tooltip } from 'react-tooltip';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../utils/client';
+import { urlFor } from '../../utils/client';
+import { useSanityContext } from '../../context/SanityContext';
 import './Skills.scss';
 
 const Skills = () => {
-  const [skills, setSkills] = useState([]);
-  const [experiences, setExperiences] = useState([]);
-
-  useEffect(() => {
-    const experiencesQuery = '*[_type == "experiences"]';
-    const skillsQuery = '*[_type == "skills"]';
-
-    const getSkills = async () => {
-      const skills = await client.fetch(skillsQuery);
-      setSkills(skills);
-    };
-
-    const getExperiences = async () => {
-      const experiences = await client.fetch(experiencesQuery);
-      setExperiences(experiences);
-    };
-
-    getSkills();
-    getExperiences();
-  }, []);
+  const { skills, experiences } = useSanityContext();
 
   return (
     <>

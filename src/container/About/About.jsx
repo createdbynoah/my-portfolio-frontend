@@ -4,23 +4,11 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 
-import { urlFor, client } from '../../utils/client';
+import { urlFor } from '../../utils/client';
+import { useSanityContext } from '../../context/SanityContext';
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "about"]';
-
-    client
-      .fetch(query)
-      .then((abouts) => {
-        setAbouts(abouts);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const { abouts } = useSanityContext();
 
   return (
     <>

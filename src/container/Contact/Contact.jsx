@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { images, emailUrl } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../utils/client';
+import { setContact } from '../../utils/client';
 import './Contact.scss';
 
 const Contact = () => {
@@ -32,7 +32,7 @@ const Contact = () => {
     };
 
     try {
-      await client.create(contact);
+      await setContact(contact);
       // fetch email url post request
       await fetch(emailUrl, {
         method: 'POST',

@@ -5,24 +5,22 @@ import { IoMdCode } from 'react-icons/io';
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../utils/client';
+import { useSanityContext } from '../../context/SanityContext';
+import { urlFor } from '../../utils/client';
 import './Works.scss';
 
 const Work = () => {
+  const { works } = useSanityContext();
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
-  const [works, setWorks] = useState([]);
   const [filterWorks, setFilterWork] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
-    const getWorks = async () => {
-      const works = await client.fetch(query);
-      setWorks(works);
+    if (works && works.length > 0) {
       setFilterWork(works);
-    };
-    getWorks();
-  }, []);
+    }
+    console.log('works', works);
+  }, [works]);
 
   const handleWorkFilter = (item) => {
     setActiveFilter(item);

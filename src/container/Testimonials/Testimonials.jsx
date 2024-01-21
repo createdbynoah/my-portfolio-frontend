@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../utils/client';
+import { urlFor } from '../../utils/client';
+import { useSanityContext } from '../../context/SanityContext';
 import './Testimonials.scss';
 
 const Testimonial = () => {
-  const [brands, setBrands] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
+  const { testimonials } = useSanityContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonialText, setTestimonialText] = useState('');
 
@@ -17,39 +17,49 @@ const Testimonial = () => {
   };
 
   useEffect(() => {
-    const testimonialsQuery = '*[_type == "testimonials"]';
-    const brandsQuery = '*[_type == "brands"]';
-
-    const getTestimonials = async () => {
-      const raw = await client.fetch(testimonialsQuery);
-      const testimonials = raw.map((testimonial) => {
-        return {
-          ...testimonial,
-          imageUrl: urlFor(testimonial.imageUrl),
-          short:
-            testimonial.testimonial.length > 350
-              ? testimonial.testimonial.slice(0, 350) + '...'
-              : null,
-          expanded: false,
-        };
-      });
-      console.log(testimonials);
-      setTestimonials(testimonials);
+    if (testimonials && testimonials.length > 0) {
       setTestimonialText(
         testimonials[0].short
           ? testimonials[0].short
           : testimonials[0].testimonial
       );
-    };
+    }
+  }, [testimonials]); // Add testimonials as a dependency
 
-    const getBrands = async () => {
-      const brands = await client.fetch(brandsQuery);
-      setBrands(brands);
-    };
+  // useEffect(() => {
+  //   const testimonialsQuery = '*[_type == "testimonials"]';
+  //   // const brandsQuery = '*[_type == "brands"]';
 
-    getTestimonials();
-    getBrands();
-  }, []);
+  //   const getTestimonials = async () => {
+  //     const raw = await client.fetch(testimonialsQuery);
+  //     const testimonials = raw.map((testimonial) => {
+  //       return {
+  //         ...testimonial,
+  //         imageUrl: urlFor(testimonial.imageUrl),
+  //         short:
+  //           testimonial.testimonial.length > 350
+  //             ? testimonial.testimonial.slice(0, 350) + '...'
+  //             : null,
+  //         expanded: false,
+  //       };
+  //     });
+  //     console.log(testimonials);
+  //     setTestimonials(testimonials);
+  //     setTestimonialText(
+  //       testimonials[0].short
+  //         ? testimonials[0].short
+  //         : testimonials[0].testimonial
+  //     );
+  //   };
+
+  // const getBrands = async () => {
+  //   const brands = await client.fetch(brandsQuery);
+  //   setBrands(brands);
+  // };
+
+  // getTestimonials();
+  // getBrands();
+  // }, []);
 
   const currTestimonial = testimonials[currentIndex];
 
