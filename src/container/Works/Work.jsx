@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillEye } from 'react-icons/ai';
 import { IoMdCode } from 'react-icons/io';
+import { IoStar } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 
 import { urlFor } from '../../utils/client';
@@ -10,6 +11,11 @@ import './Works.scss';
 const Work = ({ project, hoverLinks }) => {
   return (
     <div className="app__work-item app__flex">
+      {project.rank === 1 && (
+        <div className="app__work-star">
+          <IoStar />
+        </div>
+      )}
       <div className="app__work-img app__flex">
         <img src={urlFor(project.heroImageUrl)} alt={project.name} />
         {hoverLinks && (
@@ -48,7 +54,7 @@ const Work = ({ project, hoverLinks }) => {
 
       <div className="app__work-content app__flex">
         <h4 className="bold-text">{project.name}</h4>
-        <p className="p-text" style={{ marginTop: 10 }}>
+        <p className="p-text truncate" style={{ marginTop: 10 }}>
           {project.description_short}
         </p>
         <div className="app__work-tag app__flex">

@@ -39,6 +39,12 @@
         background-color: var(--secondary);
         color: var(--text-white);
     }
+
+    @media screen and (max-width: 900px) {
+        justify-content: center;
+        margin: 2rem 0 1rem;
+        
+    }
 }
 
 .app__work-portfolio {
@@ -50,11 +56,11 @@
     .app__work-item {
         width: 270px;
         flex-direction: column;
-
+        position: relative;
         margin: 2rem;
         padding: 1rem;
         border-radius: 0.5rem;
-        background-color: var(--text-white);
+        background-color: var(--white);
         color: var(--text);
         
         cursor: pointer;
@@ -73,6 +79,33 @@
         @media screen and (max-width: 300px) {
             width: 100%;
             margin: 1rem;
+        }
+
+        // prefers-color-scheme: dark
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--accent-100);
+        }
+
+        .app__work-star{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary);
+            padding: 0.5rem;
+            height: 50px;
+            width: 50px;
+            border-radius: 2rem;
+            z-index: 2;
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+            font-size: 1.8rem;
+            transform: rotate(10deg);
+
+            svg {
+                color: #EDB95E;
+            }
         }
     }
 }
@@ -146,6 +179,10 @@
         border-radius: 10px;
         background-color: var(--text-white);
         top: -25px;
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--accent-100);
+        }
 
     }
 }
