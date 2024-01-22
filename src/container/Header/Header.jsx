@@ -63,7 +63,7 @@ const Header = () => {
             onMouseEnter={() => handleEnter('linkedin')}
             onMouseLeave={() => handleLeave('linkedin')}
           >
-            Say Hello{isHovering.linkedin && <FaLinkedin />}
+            Say Hello{(isHovering.linkedin || isMobile) && <FaLinkedin />}
           </a>
           <Link
             className="hero__btn outline"
@@ -71,7 +71,7 @@ const Header = () => {
             onMouseEnter={() => handleEnter('resume')}
             onMouseLeave={() => handleLeave('resume')}
           >
-            Resume{isHovering.resume && <RiShareBoxLine />}
+            Resume{(isHovering.resume || isMobile) && <RiShareBoxLine />}
           </Link>
         </div>
       </div>
