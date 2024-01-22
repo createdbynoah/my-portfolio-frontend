@@ -39,7 +39,7 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-      <MoreLink text="Read More" path="/resume" />
+      <MoreLink text="Read More" path="/about" />
     </>
   );
 };
