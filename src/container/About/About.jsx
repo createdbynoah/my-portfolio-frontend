@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 
 import { urlFor } from '../../utils/client';
 import { useSanityContext } from '../../context/SanityContext';
+import { MoreLink } from '../../components';
 
 const About = () => {
   const { abouts } = useSanityContext();
@@ -36,6 +39,7 @@ const About = () => {
           </motion.div>
         ))}
       </div>
+      <MoreLink text="Read More" path="/resume" />
     </>
   );
 };
