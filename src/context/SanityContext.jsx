@@ -33,6 +33,8 @@ const SanityProvider = ({ children }) => {
     };
     const fetchProjects = async () => {
       const projects = await getProjects();
+      // sort by rank
+      projects.sort((a, b) => a.rank - b.rank);
       setProjects(projects);
     };
     const fetchWorks = async () => {
