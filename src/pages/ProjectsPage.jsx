@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSanityContext } from '../context/SanityContext';
 import { Work } from '../container';
+import { ImageHeading } from '../components';
+import { images } from '../constants/';
 
 import './ProjectsPage.scss';
 
@@ -10,9 +12,12 @@ const ProjectsPage = () => {
   const { projects, works } = useSanityContext();
   return (
     <div className="app__container col">
-      <header className="projects__heading">
-        <h1>Projects</h1>
-      </header>
+      <ImageHeading
+        image={images.blocks}
+        title="Projects"
+        bgPosition={[40, 40]}
+        height="350px"
+      />
       <section>
         <div className="projects__container app__work-portfolio">
           {projects.map((project, index) => (
