@@ -52,7 +52,7 @@ const Work = ({ project, hoverLinks }) => {
           {project.description_short}
         </p>
         <div className="app__work-tag app__flex">
-          <p className="p-text">{project.tags[0]}</p>
+          <p className="p-text">{project.tags ? project.tags[0] : ''}</p>
         </div>
       </div>
     </div>
