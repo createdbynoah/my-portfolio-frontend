@@ -42,6 +42,7 @@ import spotify from '../assets/images/spotify.png';
 
 import blocks from '../assets/images/blocks.png';
 import pegboard from '../assets/images/pegboard.png';
+import family from '../assets/images/family.jpg';
 
 export default {
   email,
@@ -84,4 +85,5 @@ export default {
   spotify,
   blocks,
   pegboard,
+  family,
 };
