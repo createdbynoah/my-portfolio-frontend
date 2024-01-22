@@ -40,6 +40,9 @@ import nb from '../assets/images/nb.png';
 import skype from '../assets/images/skype.png';
 import spotify from '../assets/images/spotify.png';
 
+import blocks from '../assets/images/blocks.png';
+import pegboard from '../assets/images/pegboard.png';
+
 export default {
   email,
   mobile,
@@ -79,4 +82,6 @@ export default {
   nb,
   skype,
   spotify,
+  blocks,
+  pegboard,
 };
