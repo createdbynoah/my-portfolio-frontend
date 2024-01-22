@@ -6,6 +6,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor } from '../../utils/client';
 import { useSanityContext } from '../../context/SanityContext';
 import './Skills.scss';
+import { MoreLink } from '../../components';
 
 const Skills = () => {
   const { skills, experiences } = useSanityContext();
@@ -62,6 +63,7 @@ const Skills = () => {
           ))}
         </motion.div>
       </div>
+      <MoreLink text="Learn More" path="/resume" />
     </>
   );
 };
