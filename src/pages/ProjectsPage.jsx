@@ -16,7 +16,7 @@ const ProjectsPage = () => {
         image={images.blocks}
         title="Projects"
         bgPosition={[40, 40]}
-        height="350px"
+        height={350}
       />
       <section>
         <div className="projects__container app__work-portfolio">

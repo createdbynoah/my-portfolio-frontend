@@ -10,8 +10,8 @@ const ResumePage = () => {
     <div className="app__container col">
       <ImageHeading
         image={images.pegboard}
-        title="Resume"
-        height="350px"
+        title="Experience"
+        height={350}
         bgPosition={[15, 15]}
       />
       <section className="projects__container"></section>
