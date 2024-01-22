@@ -42,6 +42,14 @@ const Header = () => {
         <h1>
           Hi, I'm <span>Noah</span>.
         </h1>
+        {isMobile && (
+          <div className="item-a__img">
+            <div className="item-a__img-bg">
+              <img src={images.noahSquare} alt="profile_circle" />
+            </div>
+          </div>
+        )}
+
         <h2>Full-Stack Developer</h2>
         <h3>
           Excited by strategic and excellent form + function. <br />
@@ -66,11 +74,6 @@ const Header = () => {
             Resume{isHovering.resume && <RiShareBoxLine />}
           </Link>
         </div>
-        {isMobile && (
-          <div className="item-a__img">
-            <img src={images.noahSquare} alt="profile_circle" />
-          </div>
-        )}
       </div>
       {!isMobile && (
         <div className="item-b">

@@ -14,10 +14,12 @@
 .app__container {
   width: 100%;
   min-height: 100vh;
-
+  position: relative;
   display: flex;
   flex-direction: row;
+  padding-top: 72px;
 
+ 
   &.row {
     flex-direction: row;
   }
@@ -25,6 +27,7 @@
   &.col {
     flex-direction: column;
   }
+  
 }
 
 .app__flex {
@@ -37,10 +40,49 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 0 2rem 4rem;
 
   @media screen and (max-width: 450px) {
     padding: 4rem 1rem 2rem;
+  }
+}
+
+.app__more-link {
+  margin-top: 5rem;
+  padding:  1rem 2rem;
+
+  a {
+      text-decoration: none;
+      color: var(--text-400);
+      font-weight: 400;
+      font-size: 1.6rem;
+      transition: font-weight 0.2s ease, color 0.2s ease;
+      
+
+      &:hover {
+          color: var(--primary);
+          font-weight: 600;
+      }
+  
+  }
+
+  svg {
+      margin-left: 0.5rem;
+      position: relative;
+      top: 0.2rem;
+  }
+
+  &:hover {
+      color: var(--primary-500);
+  }
+
+  @media screen and (max-width: 900px) {
+
+      margin-top: 3rem;
+
+      a {
+          font-size: 1.4rem;
+      }
   }
 }
 
