@@ -51,7 +51,7 @@ const Work = ({ project, hoverLinks }) => {
                 <IoMdCode />
               </motion.div>
             </a>
-            <Link to={`/work/${project.slug.current}`}>
+            <Link to={`/projects/${project.slug.current}`}>
               <motion.div
                 // whileHover={{ scale: [1, 0.9] }}
                 whileInView={{ scale: [0, 1] }}
