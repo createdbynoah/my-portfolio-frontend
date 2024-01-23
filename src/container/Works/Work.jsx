@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AiFillEye } from 'react-icons/ai';
 import { IoMdCode } from 'react-icons/io';
 import { IoStar } from 'react-icons/io5';
+import { HiDotsHorizontal } from 'react-icons/hi';
+
 import { motion } from 'framer-motion';
 
 import { urlFor } from '../../utils/client';
@@ -48,6 +51,16 @@ const Work = ({ project, hoverLinks }) => {
                 <IoMdCode />
               </motion.div>
             </a>
+            <Link to={`/work/${project.slug.current}`}>
+              <motion.div
+                // whileHover={{ scale: [1, 0.9] }}
+                whileInView={{ scale: [0, 1] }}
+                transition={{ duration: 0.25 }}
+                className="app__flex"
+              >
+                <HiDotsHorizontal />
+              </motion.div>
+            </Link>
           </motion.div>
         )}
       </div>

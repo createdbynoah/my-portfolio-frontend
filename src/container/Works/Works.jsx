@@ -65,7 +65,7 @@ const Works = () => {
         className="app__work-portfolio"
       >
         {filterWorks.slice(0, 3).map((work, index) => (
-          <Work key={index} project={work} />
+          <Work key={index} project={work} hoverLinks />
         ))}
       </motion.div>
       <MoreLink text="View More" path="/projects" />
