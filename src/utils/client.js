@@ -18,7 +18,7 @@ const builder = imageUrlBuilder(client);
 const urlFor = (source) =>  builder.image(source);
 
 const getAbouts = memoize(async () => {
-    const query = `*[_type == "about"]`;
+    const query = `*[_type == "about" && isPublished == true]`;
     const abouts = await client.fetch(query);
     return abouts;
 }, { maxAge: cacheTimeout });
@@ -35,7 +35,7 @@ const setContact = async (contact) => {
 };
 
 const getProjects = memoize(async () => {
-    const query = `*[_type == "projects"]`;
+    const query = `*[_type == "projects" && isPublished == true]`;
     const projects = await client.fetch(query);
     return projects;
 }, { maxAge: cacheTimeout });
@@ -46,10 +46,10 @@ const getProject = memoize(async (id) => {
     return project;
 }, { maxAge: cacheTimeout });
 
-const getExperiences = memoize(async () => {
-    const query = `*[_type == "experiences"]`;
-    const experiences = await client.fetch(query);
-    return experiences;
+const getWorkExperiences = memoize(async () => {
+    const query = `*[_type == "workExperiences" && isPublished == true]`;
+    const workExperiences = await client.fetch(query);
+    return workExperiences;
 }, { maxAge: cacheTimeout });
 
 const getSkills = memoize(async () => {
@@ -59,7 +59,7 @@ const getSkills = memoize(async () => {
 }, { maxAge: cacheTimeout });
 
 const getTestimonials = memoize(async () => {
-    const query = `*[_type == "testimonials"]`;
+    const query = `*[_type == "testimonials" && isPublished == true]`;
     const testimonials = await client.fetch(query);
     return testimonials;
 }, { maxAge: cacheTimeout });
@@ -70,7 +70,7 @@ export {
     getWorks,
     getProjects,
     getProject,
-    getExperiences,
+    getWorkExperiences,
     getSkills,
     getTestimonials,
     urlFor

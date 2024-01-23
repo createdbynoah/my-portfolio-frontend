@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 import {
   getAbouts,
-  getExperiences,
+  getWorkExperiences,
   getProject,
   getProjects,
   getWorks,
@@ -15,7 +15,7 @@ const SanityContext = createContext();
 
 const SanityProvider = ({ children }) => {
   const [abouts, setAbouts] = useState([]);
-  const [experiences, setExperiences] = useState([]);
+  const [workExperiences, setWorkExperiences] = useState([]);
   const [projects, setProjects] = useState([]);
   const [works, setWorks] = useState([]);
   const [project, setProject] = useState([]);
@@ -27,9 +27,57 @@ const SanityProvider = ({ children }) => {
       const abouts = await getAbouts();
       setAbouts(abouts);
     };
-    const fetchExperiences = async () => {
-      const experiences = await getExperiences();
-      setExperiences(experiences);
+    const fetchWorkExperiences = async () => {
+      const experiences = await getWorkExperiences();
+      const workExperiences = experiences.map((experience) => {
+        const startDateDisp = {
+          month: new Date(experience.startDate).toLocaleString('default', {
+            month: 'short',
+          }),
+          year: new Date(experience.startDate).getFullYear(),
+          full:
+            new Date(experience.startDate).toLocaleString('default', {
+              month: 'short',
+            }) +
+            ' ' +
+            new Date(experience.startDate).getFullYear(),
+        };
+        let endDateDisp;
+        if (experience.endDate === 'Present') {
+          endDateDisp = {
+            month: 'Present',
+            year: 'Present',
+            full: 'Present',
+          };
+        } else {
+          endDateDisp = {
+            month: new Date(experience.endDate).toLocaleString('default', {
+              month: 'short',
+            }),
+            year: new Date(experience.endDate).getFullYear(),
+            full:
+              new Date(experience.endDate).toLocaleString('default', {
+                month: 'short',
+              }) +
+              ' ' +
+              new Date(experience.endDate).getFullYear(),
+          };
+        }
+
+        return {
+          ...experience,
+          startDate: new Date(experience.startDate),
+          startDateDisp,
+          endDate:
+            experience.endDate === 'Present'
+              ? 'Present'
+              : new Date(experience.endDate),
+          endDateDisp,
+        };
+      });
+      workExperiences.sort((a, b) => a.order - b.order);
+      console.log('work experiences', workExperiences);
+      setWorkExperiences(workExperiences);
     };
     const fetchProjects = async () => {
       const projects = await getProjects();
@@ -61,7 +109,7 @@ const SanityProvider = ({ children }) => {
       setTestimonials(testimonials);
     };
     fetchAbouts();
-    fetchExperiences();
+    fetchWorkExperiences();
     fetchProjects();
     fetchWorks();
     fetchSkills();
@@ -75,7 +123,7 @@ const SanityProvider = ({ children }) => {
 
   const value = {
     abouts,
-    experiences,
+    workExperiences,
     projects,
     works,
     project,
