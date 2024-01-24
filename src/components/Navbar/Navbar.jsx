@@ -8,6 +8,7 @@ import { images } from '../../constants';
 import { SocialMedia } from '../../components';
 
 import './Navbar.scss';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -46,7 +47,9 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={logo} alt="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
       </div>
       <ul className="app__navbar-links" id="nav-links">
         {['home', 'about', 'work', 'testimonials', 'contact'].map((item) => (
