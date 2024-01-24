@@ -35,10 +35,18 @@ const setContact = async (contact) => {
 };
 
 const getProjects = memoize(async () => {
-    const query = `*[_type == "projects" && isPublished == true]`;
+    const query = `*[_type == "projects" && isPublished == true]{...,categories[]->{_id, name}}`;
     const projects = await client.fetch(query);
+    console.log('projects', projects)
     return projects;
 }, { maxAge: cacheTimeout });
+
+const getProjectCategories = memoize(async () => {
+    const query = `*[_type == "projectCategories"]{...,projects[]->{_id}} | order(order, name desc)`;
+    const projectCategories = await client.fetch(query);
+    console.log('projectCategories', projectCategories)
+    return projectCategories;
+});
 
 const getProject = memoize(async (id) => {
     const query = `*[_type == "projects" && _id == ${id}]`;
@@ -70,6 +78,7 @@ export {
     getWorks,
     getProjects,
     getProject,
+    getProjectCategories,
     getWorkExperiences,
     getSkills,
     getTestimonials,

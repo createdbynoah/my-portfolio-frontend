@@ -5,6 +5,7 @@ import {
   getWorkExperiences,
   getProject,
   getProjects,
+  getProjectCategories,
   getWorks,
   getSkills,
   getTestimonials,
@@ -17,6 +18,7 @@ const SanityProvider = ({ children }) => {
   const [abouts, setAbouts] = useState([]);
   const [workExperiences, setWorkExperiences] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [projectCategories, setProjectCategories] = useState([]);
   const [works, setWorks] = useState([]);
   const [project, setProject] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -85,6 +87,10 @@ const SanityProvider = ({ children }) => {
       projects.sort((a, b) => a.rank - b.rank);
       setProjects(projects);
     };
+    const fetchProjectCategories = async () => {
+      const categories = await getProjectCategories();
+      setProjectCategories(categories);
+    };
     const fetchWorks = async () => {
       const works = await getWorks();
       setWorks(works);
@@ -111,6 +117,7 @@ const SanityProvider = ({ children }) => {
     fetchAbouts();
     fetchWorkExperiences();
     fetchProjects();
+    fetchProjectCategories();
     fetchWorks();
     fetchSkills();
     fetchTestimonials();
@@ -127,6 +134,7 @@ const SanityProvider = ({ children }) => {
     projects,
     works,
     project,
+    projectCategories,
     findProjectById,
     skills,
     testimonials,
