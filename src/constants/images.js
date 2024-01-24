@@ -43,6 +43,9 @@ import spotify from '../assets/images/spotify.png';
 import blocks from '../assets/images/blocks.png';
 import pegboard from '../assets/images/pegboard.png';
 import family from '../assets/images/family.jpg';
+import desk from '../assets/images/desk.png';
+import colorado1 from '../assets/images/colorado1.webp';
+import colorado2 from '../assets/images/colorado2.webp';
 
 export default {
   email,
@@ -86,4 +89,7 @@ export default {
   blocks,
   pegboard,
   family,
+  desk,
+  colorado1,
+  colorado2,
 };
