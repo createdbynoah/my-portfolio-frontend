@@ -7,6 +7,7 @@ import {
   ResumePage,
   ProjectPage,
   NotFoundPage,
+  JobPage,
 } from '../pages/';
 import { RootLayout } from '../layouts/';
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/resume',
         element: <ResumePage />,
+      },
+      {
+        path: '/resume/:slug',
+        element: <JobPage />,
       },
       {
         path: '*',
