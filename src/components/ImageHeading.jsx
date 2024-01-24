@@ -26,6 +26,8 @@ const ImageHeading = ({
 
   const gradientColorValue = isDark ? gradientColor.dark : gradientColor.light;
   const textColorValue = isDark ? textColor.dark : textColor.light;
+  const titleText = title.h1 ? title.h1 : title;
+  const subtitleText = title.h2 ? title.h2 : null;
 
   const bgPositionValue = `${bgPosition[0]}% ${bgPosition[1]}%`;
   const background = `linear-gradient(rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 1), rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 0.2)), url(${image}) no-repeat`;
@@ -39,7 +41,13 @@ const ImageHeading = ({
         height: `${imgHeight}px`,
       }}
     >
-      <h1 style={{ color: `${textColorValue}` }}>{title}</h1>
+      <h1
+        style={{ color: `${textColorValue}` }}
+        className={`${subtitleText ? 'with-subtitle' : ''}`}
+      >
+        {titleText}
+      </h1>
+      {subtitleText && <h2>{subtitleText}</h2>}
     </header>
   );
 };
