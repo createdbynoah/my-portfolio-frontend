@@ -35,7 +35,7 @@ const Skills = () => {
           {workExperiences?.map((exp, index) => (
             <motion.div className="app__skills-exp-item" key={exp._id}>
               <div className="app__skills-exp-year">
-                <p className="bold-text">
+                <p className="">
                   {index <= 1 &&
                     `${exp.startDateDisp.full} - ${exp.endDateDisp.full}`}
                   {index > 1 &&
