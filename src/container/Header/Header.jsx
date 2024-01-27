@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { RiShareBoxLine } from 'react-icons/ri';
 import { FaLinkedin } from 'react-icons/fa';
-import { GoArrowDownRight } from 'react-icons/go';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -65,14 +64,15 @@ const Header = () => {
           >
             Say Hello{(isHovering.linkedin || isMobile) && <FaLinkedin />}
           </a>
-          <Link
+          <a
             className="hero__btn outline"
-            to="/resume"
+            href="/Noah-Rodgers-Resume-2024.pdf"
+            target="_blank"
             onMouseEnter={() => handleEnter('resume')}
             onMouseLeave={() => handleLeave('resume')}
           >
             Resume{(isHovering.resume || isMobile) && <RiShareBoxLine />}
-          </Link>
+          </a>
         </div>
       </div>
       {!isMobile && (
