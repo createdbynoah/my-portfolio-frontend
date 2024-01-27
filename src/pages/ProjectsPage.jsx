@@ -41,7 +41,7 @@ const ProjectsPage = () => {
         bgPosition={[40, 40]}
         height={350}
       />
-      <section>
+      <section className="projects__container">
         <div className="projects__project-filter">
           {projectCategories.map((item) => (
             <div
@@ -56,12 +56,16 @@ const ProjectsPage = () => {
           ))}
         </div>
         <motion.div
-          className="projects__container app__work-portfolio"
+          className="projects__project-cards app__work-portfolio"
           animate={animateCard}
           transition={{ duration: 0.5, delayChildren: 0.5 }}
         >
           {filterProjects.map((project, index) => (
-            <Link to={`/projects/${project.slug.current}`} key={project._id}>
+            <Link
+              to={`/projects/${project.slug.current}`}
+              key={project._id}
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <Work project={project} hoverLinks={false} />
             </Link>
           ))}
