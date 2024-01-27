@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
 import { useSanityContext } from '../context/SanityContext';
@@ -54,13 +55,17 @@ const ProjectsPage = () => {
             </div>
           ))}
         </div>
-        <div className="projects__container app__work-portfolio">
+        <motion.div
+          className="projects__container app__work-portfolio"
+          animate={animateCard}
+          transition={{ duration: 0.5, delayChildren: 0.5 }}
+        >
           {filterProjects.map((project, index) => (
             <Link to={`/projects/${project.slug.current}`} key={project._id}>
               <Work project={project} hoverLinks={false} />
             </Link>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );
