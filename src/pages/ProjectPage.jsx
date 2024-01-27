@@ -4,7 +4,7 @@ import { PortableText } from '@portabletext/react';
 
 import { urlFor } from '../utils/client';
 import { useSanityContext } from '../context/SanityContext';
-import { ImageHeading, Sidebar } from '../components';
+import { ImageHeading, Sidebar, ListItem } from '../components';
 
 import './ProjectPage.scss';
 
@@ -26,7 +26,10 @@ const ProjectPage = () => {
         <Sidebar item={project} buttons />
         <div className="project__content">
           <div className="project__description">
-            <PortableText value={project?.description_long} />
+            <PortableText
+              value={project?.description_long}
+              components={{ listItem: ListItem }}
+            />
           </div>
         </div>
       </section>
