@@ -50,19 +50,17 @@ const Contact = () => {
 
   return (
     <>
-      <h2 className="head-text">Chat with me</h2>
+      <h2 className="head-text">Contact Me</h2>
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
           <a href="mailto:noah@noahrodgers.dev" className="p-text">
-            noah@noahrodgers.dev
+            Email
           </a>
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="phone" />
-          <a href="tel:+1-972-268-2358" className="p-text">
-            (972) 268-2358
-          </a>
+          <a className="p-text">LinkedIn</a>
         </div>
       </div>
       {!isFormSubmitted ? (
