@@ -1,6 +1,7 @@
 .job__container {
     width: 100%;
-    margin: 3rem 0 6rem;
+    max-width: 1500px;
+    margin: 3rem auto 6rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
@@ -10,6 +11,7 @@
 
     @media screen and (max-width: 900px) {
         grid-template-columns: 1fr;
+        padding: 0 1.5rem;
     }
 
 }
@@ -27,6 +29,10 @@
         &:not(:first-of-type) {
             margin-top: 3rem;
         }
+
+        @media screen and (max-width: 900px) {
+            font-size: 2rem;
+        }
     }
 
     p {
@@ -39,6 +45,7 @@
 
         @media screen and (max-width: 900px) {
             margin-left: 0;
+            font-size: 1rem;
         }
    
     }
@@ -57,21 +64,24 @@
     }
 
     ul {
-        list-style: disc;
+        list-style: none;
         margin-bottom: 1.2rem;
         padding-left: 1rem;
-        margin-left: 3.5rem;
+        margin-left: 2rem;
+        font-size: 1.1rem;
 
         @media screen and (max-width: 900px) {
-            margin-left: 2rem;
+            margin-left: 0;
+            font-size: 1rem;
         }
 
-        li {
-            font-size: 1.1rem;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
+        li ul {
+            margin-left: 0;
+            margin-top: 0.7rem;
+            margin-bottom: 0;
         }
+
+      
     }
 
     @media screen and (max-width: 900px) {

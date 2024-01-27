@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { useSanityContext } from '../context/SanityContext';
 import { images } from '../constants';
-import { ImageHeading, Sidebar } from '../components';
+import { ImageHeading, Sidebar, ListItem } from '../components';
 
 import './JobPage.scss';
 
@@ -25,7 +25,10 @@ const JobPage = () => {
       <section className="job__container">
         <Sidebar item={job} />
         <div className="job__content">
-          <PortableText value={job?.responsibilities} />
+          <PortableText
+            value={job?.responsibilities}
+            components={{ listItem: ListItem }}
+          />
           <PortableText value={job?.description} />
         </div>
       </section>
