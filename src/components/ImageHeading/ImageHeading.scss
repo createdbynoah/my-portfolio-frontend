@@ -8,6 +8,10 @@ header {
     text-align: center;
     width: 100%;
 
+    @media screen and (max-width: 900px) {
+        padding: 0 1rem;
+    }
+
 
    h1 {
         color: var(--primary-600);
@@ -63,14 +67,14 @@ header {
            }
        
            @media screen and (max-width: 900px) {
-               font-size: 1.8rem;
+               font-size: 1.5rem;
                padding: 0.8rem 1.5rem;
 
                 
            }
        
            @media screen and (max-width: 450px) {
-               font-size: 1.2rem;
+               font-size: 1.1rem;
                padding: 0.5rem 1rem;
 
               
