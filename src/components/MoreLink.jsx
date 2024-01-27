@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa';
 const ViewMore = ({ path, text }) => {
   return (
     <div className="app__more-link">
-      <Link to={path}>
+      <Link to={path} onClick={() => window.scrollTo(0, 0)}>
         {text} <FaArrowRight />
       </Link>
     </div>
