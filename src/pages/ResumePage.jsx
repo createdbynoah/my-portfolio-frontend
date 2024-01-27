@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight, FaTags } from 'react-icons/fa';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { ImageHeading, TimelineObject } from '../components';
+import { ImageHeading, JobsMobile, JobsTimeline } from '../components';
 import { images } from '../constants';
 
 import { useSanityContext } from '../context/SanityContext';
@@ -13,6 +14,8 @@ const ResumePage = () => {
   const [hoveredId, setHoveredId] = useState(null);
   const { workExperiences } = useSanityContext();
 
+  const isMobile = useMediaQuery('(max-width: 900px)');
+
   return (
     <div className="app__container col">
       <ImageHeading
@@ -21,37 +24,14 @@ const ResumePage = () => {
         height={350}
         bgPosition={[15, 15]}
       />
-      <section className="experiences__container">
-        <div className="col-a">
-          {workExperiences
-            ?.filter((_, i) => i % 2 === 0)
-            .map((exp) => (
-              <TimelineObject
-                exp={exp}
-                key={exp._id}
-                hoveredId={hoveredId}
-                handleHover={setHoveredId}
-              />
-            ))}
-        </div>
-        <div className="timeline">
-          <div className="arrow-start"></div>
-          <div className="line"></div>
-          <div className="dot-end"></div>
-        </div>
-        <div className="col-b">
-          {workExperiences
-            ?.filter((_, i) => i % 2 !== 0)
-            .map((exp) => (
-              <TimelineObject
-                exp={exp}
-                key={exp._id}
-                hoveredId={hoveredId}
-                handleHover={setHoveredId}
-              />
-            ))}
-        </div>
-      </section>
+      {!isMobile && (
+        <JobsTimeline
+          handleHover={setHoveredId}
+          hoveredId={hoveredId}
+          workExperiences={workExperiences}
+        />
+      )}
+      {isMobile && <JobsMobile workExperiences={workExperiences} />}
     </div>
   );
 };
