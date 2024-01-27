@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import { FaArrowRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 
