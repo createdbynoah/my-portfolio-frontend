@@ -1,5 +1,5 @@
 .app {
-  background-color: var(--accent-50);
+  background-color: var(--background);
   font-family: var(--font-base);
 }
 
@@ -28,6 +28,16 @@
     flex-direction: column;
   }
   
+}
+
+button {
+  font-family: var(--font-base);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  
+
+
 }
 
 .app__flex {
@@ -112,9 +122,6 @@
     color: var(--primary);
   }
 
-  @media screen and (min-width: 2000px) {
-    font-size: 4rem;
-  }
 
   @media screen and (max-width: 450px) {
     font-size: 2rem;
@@ -127,9 +134,7 @@
   color: var(--text-700);
   line-height: 1.5;
 
-  @media screen and (min-width: 2000px) {
-    font-size: 1.75rem;
-  }
+
 }
 
 .bold-text {
@@ -138,9 +143,6 @@
   color: var(--text);
   text-align: left;
 
-  @media screen and (min-width: 2000px) {
-    font-size: 2rem;
-  }
 
   @media screen and (max-width: 450px) {
     font-size: 0.9rem;
@@ -244,10 +246,6 @@
       background-color: var(--accent);
     }
 
-    @media screen and (min-width: 2000px) {
-      width: 20px;
-      height: 20px;
-    }
   }
 }
 
