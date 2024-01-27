@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiShareBoxLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 import { contact } from '../../constants';
@@ -16,10 +17,21 @@ const Footer = () => {
               <a href={`mailto:${contact.email}`}>Email Me</a>
             </li>
             <li>
-              <a href={contact.social.linkedin}>LinkedIn</a>
+              <a href={contact.social.linkedin} target="_blank">
+                LinkedIn
+              </a>
             </li>
             <li>
-              <a href={contact.links.resume}>My Resume</a>
+              <a
+                href={contact.resume}
+                target="_blank"
+                className="app__flex gap-1"
+              >
+                My Resume
+                <span className="app__flex">
+                  <RiShareBoxLine />
+                </span>
+              </a>
             </li>
           </ul>
         </div>
@@ -42,16 +54,36 @@ const Footer = () => {
           <h5>Projects</h5>
           <ul>
             <li>
-              <Link to="/projects/buy-my-gear">BuyMyGear.</Link>
+              <Link
+                to="/projects/buy-my-gear"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                BuyMyGear.
+              </Link>
             </li>
             <li>
-              <Link to="/projects/shuttle">Shuttle</Link>
+              <Link
+                to="/projects/shuttle"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Shuttle
+              </Link>
             </li>
             <li>
-              <Link to="/project/smart-brain">Smart Brain</Link>
+              <Link
+                to="/project/smart-brain"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Smart Brain
+              </Link>
             </li>
             <li>
-              <Link to="/projects/yelp-camp">YelpCamp</Link>
+              <Link
+                to="/projects/yelp-camp"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                YelpCamp
+              </Link>
             </li>
           </ul>
         </div>
