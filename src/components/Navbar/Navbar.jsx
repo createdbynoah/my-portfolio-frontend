@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { NavHashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 import { images } from '../../constants';
-import { SocialMedia } from '../../components';
+import { SocialMedia, NavLinks } from '../../components';
 
 import './Navbar.scss';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -44,51 +44,44 @@ const Navbar = () => {
     logo = images.logoLight;
   }
 
+  const handleNavLinkClick = (link) => {
+    setToggle(false);
+    setActiveLink(link);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <Link to="/">
+        <Link to="/" onClick={() => handleNavLinkClick('')}>
           <img src={logo} alt="logo" />
         </Link>
       </div>
       <ul className="app__navbar-links" id="nav-links">
-        {['home', 'about', 'work', 'experience', 'testimonials'].map((item) => (
-          <li className="app__flex p-text pointer" key={`link-${item}`}>
-            <div></div>
-
-            <NavHashLink
-              to={`/#${item}`}
-              id={`link-${item}`}
-              smooth
-              className={activeLink === item ? 'active-link' : ''}
-              onClick={() => setActiveLink(`${item}`)}
-            >
-              {item}
-            </NavHashLink>
-          </li>
-        ))}
+        <NavLinks clickNavLink={handleNavLinkClick} activeLink={activeLink} />
       </ul>
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
-        {toggle && (
-          <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          >
-            <HiX onClick={() => setToggle(false)} />
-            <ul>
-              {['home', 'about', 'works', 'testimonials', 'contact'].map(
-                (item) => (
-                  <li key={item}>
-                    <NavHashLink smooth to={`/#${item}`}>
-                      {item}
-                    </NavHashLink>
-                  </li>
-                )
-              )}
-            </ul>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {toggle && (
+            <motion.div
+              // whileInView={{ x: [300, 0] }}
+              initial={{ x: 400 }}
+              animate={{ x: 0 }}
+              exit={{ x: 400 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+            >
+              <HiX onClick={() => setToggle(false)} />
+              <ul>
+                <NavLinks
+                  clickNavLink={handleNavLinkClick}
+                  activeLink={activeLink}
+                  sidebar
+                />
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       {!isMobile && <SocialMedia layout="row" />}
     </nav>
