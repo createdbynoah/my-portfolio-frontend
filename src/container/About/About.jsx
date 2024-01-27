@@ -6,39 +6,33 @@ import { Link } from 'react-router-dom';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 
-import { urlFor } from '../../utils/client';
-import { useSanityContext } from '../../context/SanityContext';
 import { MoreLink } from '../../components';
 
 const About = () => {
-  const { abouts } = useSanityContext();
+  const adjectives = ['Creative', 'Innovative', 'Professional'];
+  const nouns = ['Excellence', 'Good Design', 'Quality'];
+
+  const [adjective, setAdjective] = useState(adjectives[0]);
+  const [noun, setNoun] = useState(nouns[0]);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setAdjective(adjectives[Math.floor(Math.random() * adjectives.length)]);
+  //     setNoun(nouns[Math.floor(Math.random() * nouns.length)]);
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <>
       <h2 className="head-text">
-        I Know That <span>Good Development</span>
-        <br /> means <span>Good Business</span>
+        Developing <span>{adjective}</span>
+        <br /> Solutions With <span>{noun}</span>
       </h2>
-      <div className="app__profiles">
-        {abouts.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            key={about.title + index}
-            className="app__profile-item"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <img src={urlFor(about.imageUrl)} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              {about.title}
-            </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
-              {about.description}
-            </p>
-          </motion.div>
-        ))}
-      </div>
+      <p>
+        I have a keen eye for the details that matter, and the wherewithal to
+        execute upon them.
+      </p>
       <MoreLink text="Read More" path="/about" />
     </>
   );
