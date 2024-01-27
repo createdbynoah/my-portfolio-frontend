@@ -78,7 +78,6 @@ const SanityProvider = ({ children }) => {
         };
       });
       workExperiences.sort((a, b) => a.order - b.order);
-      console.log('work experiences', workExperiences);
       setWorkExperiences(workExperiences);
     };
     const fetchProjects = async () => {
