@@ -4,21 +4,28 @@ import { FaChevronLeft, FaChevronRight, FaTags } from 'react-icons/fa';
 
 import './TimelineObject.scss';
 
-const TimelineObject = ({ exp, hoveredId, handleHover }) => {
+const TimelineObject = ({ exp, hoveredId, handleHover, isMobile }) => {
   return (
     <div className="exp">
-      <div className="marker">
-        {hoveredId === exp._id && <FaChevronRight />}
-      </div>
-      <div
-        className={`marker__line ${hoveredId === exp._id ? 'active' : ''}`}
-      ></div>
-      <Link to={`/resume/${exp.slug.current}`}>
+      {!isMobile && (
+        <>
+          <div className="marker">
+            {hoveredId === exp._id && <FaChevronRight />}
+          </div>
+          <div
+            className={`marker__line ${hoveredId === exp._id ? 'active' : ''}`}
+          ></div>
+        </>
+      )}
+      <Link
+        to={`/resume/${exp.slug.current}`}
+        onClick={() => window.scrollTo(0, 0)}
+      >
         <div
           className="exp__item"
           key={exp._id}
-          onMouseEnter={() => handleHover(exp._id)}
-          onMouseLeave={() => handleHover(null)}
+          onMouseEnter={!isMobile ? () => handleHover(exp._id) : undefined}
+          onMouseLeave={!isMobile ? () => handleHover(null) : undefined}
         >
           <div className="exp__works">
             <div className="exp__work">
