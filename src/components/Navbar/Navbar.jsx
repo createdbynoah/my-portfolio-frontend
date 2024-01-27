@@ -52,7 +52,7 @@ const Navbar = () => {
         </Link>
       </div>
       <ul className="app__navbar-links" id="nav-links">
-        {['home', 'about', 'work', 'testimonials', 'contact'].map((item) => (
+        {['home', 'about', 'work', 'experience', 'testimonials'].map((item) => (
           <li className="app__flex p-text pointer" key={`link-${item}`}>
             <div></div>
 
