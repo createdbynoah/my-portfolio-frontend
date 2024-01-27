@@ -46,6 +46,7 @@ import family from '../assets/images/family.jpg';
 import desk from '../assets/images/desk.png';
 import colorado1 from '../assets/images/colorado1.webp';
 import colorado2 from '../assets/images/colorado2.webp';
+import noahStudio from '../assets/images/noah-studio.jpg';
 
 export default {
   email,
@@ -92,4 +93,5 @@ export default {
   desk,
   colorado1,
   colorado2,
+  noahStudio,
 };
