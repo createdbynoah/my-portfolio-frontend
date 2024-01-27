@@ -14,7 +14,7 @@ import './Works.scss';
 const Work = ({ project, hoverLinks }) => {
   return (
     <div className="app__work-item app__flex">
-      {project.rank === 1 && (
+      {project.rank <= 2 && (
         <div className="app__work-star">
           <IoStar />
         </div>

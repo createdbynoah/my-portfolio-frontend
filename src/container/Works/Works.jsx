@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillEye, AiFillGithub } from 'react-icons/ai';
-import { IoMdCode } from 'react-icons/io';
-import { FaArrowRight } from 'react-icons/fa';
-
-import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 import { Work } from '../../container';
