@@ -30,12 +30,14 @@ const ImageHeading = ({
   const subtitleText = title.h2 ? title.h2 : null;
 
   const bgPositionValue = `${bgPosition[0]}% ${bgPosition[1]}%`;
-  const background = `linear-gradient(rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 1), rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 0.2)), url(${image}) no-repeat`;
+  const bgImageValue = `linear-gradient(rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 1), rgba(${gradientColorValue[0]}, ${gradientColorValue[1]}, ${gradientColorValue[2]}, 0.2)), url(${image})`;
+  const bgRepeatValue = 'no-repeat';
   return (
     <header
       className={className}
       style={{
-        background: background,
+        backgroundImage: bgImageValue,
+        backgroundRepeat: bgRepeatValue,
         backgroundPosition: bgPositionValue,
         backgroundSize: 'cover',
         height: `${imgHeight}px`,
