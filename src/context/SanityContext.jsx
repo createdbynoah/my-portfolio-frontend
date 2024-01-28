@@ -15,6 +15,7 @@ import {
 const SanityContext = createContext();
 
 const SanityProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [abouts, setAbouts] = useState([]);
   const [workExperiences, setWorkExperiences] = useState([]);
   const [projects, setProjects] = useState([]);
@@ -25,101 +26,107 @@ const SanityProvider = ({ children }) => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    const fetchAbouts = async () => {
-      const abouts = await getAbouts();
-      setAbouts(abouts);
-    };
-    const fetchWorkExperiences = async () => {
-      const experiences = await getWorkExperiences();
-      const workExperiences = experiences.map((experience) => {
-        const startDateDisp = {
-          month: new Date(experience.startDate).toLocaleString('default', {
-            month: 'short',
-          }),
-          year: new Date(experience.startDate).getFullYear(),
-          full:
-            new Date(experience.startDate).toLocaleString('default', {
-              month: 'short',
-            }) +
-            ' ' +
-            new Date(experience.startDate).getFullYear(),
-        };
-        let endDateDisp;
-        if (experience.endDate === 'Present') {
-          endDateDisp = {
-            month: 'Present',
-            year: 'Present',
-            full: 'Present',
-          };
-        } else {
-          endDateDisp = {
-            month: new Date(experience.endDate).toLocaleString('default', {
+    const fetchData = async () => {
+      const fetchAbouts = async () => {
+        const abouts = await getAbouts();
+        setAbouts(abouts);
+      };
+      const fetchWorkExperiences = async () => {
+        const experiences = await getWorkExperiences();
+        const workExperiences = experiences.map((experience) => {
+          const startDateDisp = {
+            month: new Date(experience.startDate).toLocaleString('default', {
               month: 'short',
             }),
-            year: new Date(experience.endDate).getFullYear(),
+            year: new Date(experience.startDate).getFullYear(),
             full:
-              new Date(experience.endDate).toLocaleString('default', {
+              new Date(experience.startDate).toLocaleString('default', {
                 month: 'short',
               }) +
               ' ' +
-              new Date(experience.endDate).getFullYear(),
+              new Date(experience.startDate).getFullYear(),
           };
-        }
+          let endDateDisp;
+          if (experience.endDate === 'Present') {
+            endDateDisp = {
+              month: 'Present',
+              year: 'Present',
+              full: 'Present',
+            };
+          } else {
+            endDateDisp = {
+              month: new Date(experience.endDate).toLocaleString('default', {
+                month: 'short',
+              }),
+              year: new Date(experience.endDate).getFullYear(),
+              full:
+                new Date(experience.endDate).toLocaleString('default', {
+                  month: 'short',
+                }) +
+                ' ' +
+                new Date(experience.endDate).getFullYear(),
+            };
+          }
 
-        return {
-          ...experience,
-          startDate: new Date(experience.startDate),
-          startDateDisp,
-          endDate:
-            experience.endDate === 'Present'
-              ? 'Present'
-              : new Date(experience.endDate),
-          endDateDisp,
-        };
-      });
-      workExperiences.sort((a, b) => a.order - b.order);
-      setWorkExperiences(workExperiences);
+          return {
+            ...experience,
+            startDate: new Date(experience.startDate),
+            startDateDisp,
+            endDate:
+              experience.endDate === 'Present'
+                ? 'Present'
+                : new Date(experience.endDate),
+            endDateDisp,
+          };
+        });
+        workExperiences.sort((a, b) => a.order - b.order);
+        setWorkExperiences(workExperiences);
+      };
+      const fetchProjects = async () => {
+        const projects = await getProjects();
+        // sort by rank
+        projects.sort((a, b) => a.rank - b.rank);
+        setProjects(projects);
+      };
+      const fetchProjectCategories = async () => {
+        const categories = await getProjectCategories();
+        setProjectCategories(categories);
+      };
+      const fetchWorks = async () => {
+        const works = await getWorks();
+        setWorks(works);
+      };
+      const fetchSkills = async () => {
+        const skills = await getSkills();
+        setSkills(skills);
+      };
+      const fetchTestimonials = async () => {
+        const raw = await getTestimonials();
+        const testimonials = raw.map((testimonial) => {
+          return {
+            ...testimonial,
+            imageUrl: urlFor(testimonial.imageUrl),
+            short:
+              testimonial.testimonial.length > 350
+                ? testimonial.testimonial.slice(0, 350) + '...'
+                : null,
+            expanded: false,
+          };
+        });
+        setTestimonials(testimonials);
+      };
+      await Promise.all([
+        fetchAbouts(),
+        fetchWorkExperiences(),
+        fetchProjects(),
+        fetchProjectCategories(),
+        fetchWorks(),
+        fetchSkills(),
+        fetchTestimonials(),
+      ]);
+      setLoading(false);
     };
-    const fetchProjects = async () => {
-      const projects = await getProjects();
-      // sort by rank
-      projects.sort((a, b) => a.rank - b.rank);
-      setProjects(projects);
-    };
-    const fetchProjectCategories = async () => {
-      const categories = await getProjectCategories();
-      setProjectCategories(categories);
-    };
-    const fetchWorks = async () => {
-      const works = await getWorks();
-      setWorks(works);
-    };
-    const fetchSkills = async () => {
-      const skills = await getSkills();
-      setSkills(skills);
-    };
-    const fetchTestimonials = async () => {
-      const raw = await getTestimonials();
-      const testimonials = raw.map((testimonial) => {
-        return {
-          ...testimonial,
-          imageUrl: urlFor(testimonial.imageUrl),
-          short:
-            testimonial.testimonial.length > 350
-              ? testimonial.testimonial.slice(0, 350) + '...'
-              : null,
-          expanded: false,
-        };
-      });
-      setTestimonials(testimonials);
-    };
-    fetchAbouts();
-    fetchWorkExperiences();
-    fetchProjects();
-    fetchProjectCategories();
-    fetchWorks();
-    fetchSkills();
-    fetchTestimonials();
+    fetchData();
   }, []);
 
   const findProjectById = async (id) => {
@@ -129,6 +136,7 @@ const SanityProvider = ({ children }) => {
 
   const value = {
     abouts,
+    loading,
     workExperiences,
     projects,
     works,
