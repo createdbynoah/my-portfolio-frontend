@@ -18,6 +18,8 @@
     --primary: #5a9cb5;
     --secondary: #98cee2;
     --accent: #57bbdf;
+    --accent-opaque: rgba(234, 246, 251, 0.85);
+
   }
   :root[data-theme="dark"] {
     --white: #ffffff;
@@ -27,6 +29,7 @@
     --primary: #4a8da5;
     --secondary: #1d5467;
     --accent: #2083a7;
+    --accent-opaque: rgba(4, 17, 21, 0.85);
   }
 
   @media (prefers-color-scheme: light) {
@@ -38,6 +41,8 @@
       --primary: #5a9cb5;
       --secondary: #98cee2;
       --accent: #57bbdf;
+      --accent-opaque: rgba(234, 246, 251, 0.85);
+
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -49,6 +54,7 @@
       --primary: #4a8da5;
       --secondary: #1d5467;
       --accent: #2083a7;
+      --accent-opaque: rgba(4, 17, 21, 0.85);
     }
   }
 
@@ -166,7 +172,7 @@
     --secondary-900: #d7edf4;
     --secondary-950: #ebf6f9;
   
-    --accent-50: #041115;
+    --accent-50: rgb(4, 17, 21);
     --accent-100: #08222b;
     --accent-200: #104356;
     --accent-300: #186581;
