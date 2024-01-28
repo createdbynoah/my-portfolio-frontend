@@ -71,7 +71,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/project/smart-brain"
+                to="/projects/smart-brain"
                 onClick={() => window.scrollTo(0, 0)}
               >
                 Smart Brain
