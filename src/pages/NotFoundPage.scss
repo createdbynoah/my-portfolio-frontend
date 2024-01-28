@@ -5,6 +5,12 @@
     justify-content: center;
     height: 100%;
     margin: auto;
+    text-align: center;
+
+    @media screen and (max-width: 900px) {
+        padding: 0 1.5rem;
+        
+    }
 
     h1 {
         font-size: 5rem;
@@ -18,6 +24,11 @@
         font-weight: 400;
         color: var(--text-600);
         margin-bottom: 1rem;
+        line-height: 1.5;
+
+        @media screen and (max-width: 900px){
+            font-size: 1.4rem;
+        }
     }
 
     p {
@@ -25,6 +36,7 @@
         font-weight: 400;
         color: var(--text-800);
         margin: 1.5rem;
+        
 
         a {
             color: var(--primary);
@@ -34,6 +46,10 @@
             &:hover {
                 color: var(--primary-400);
             }
+        }
+
+        @media screen and (max-width: 900px){
+            font-size: 1rem;
         }
     }
 }
