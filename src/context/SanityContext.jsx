@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { DateTime } from 'luxon';
 
 import {
   getAbouts,
@@ -33,21 +34,25 @@ const SanityProvider = ({ children }) => {
       };
       const fetchWorkExperiences = async () => {
         const experiences = await getWorkExperiences();
+        console.log('experiences', experiences);
         const workExperiences = experiences.map((experience) => {
+          const startDate = DateTime.fromFormat(
+            experience.startDate,
+            'MM-dd-yyyy'
+          );
+          const endDate =
+            experience.endDate === 'Present'
+              ? 'Present'
+              : DateTime.fromFormat(experience.endDate, 'MM-dd-yyyy');
+
           const startDateDisp = {
-            month: new Date(experience.startDate).toLocaleString('default', {
-              month: 'short',
-            }),
-            year: new Date(experience.startDate).getFullYear(),
-            full:
-              new Date(experience.startDate).toLocaleString('default', {
-                month: 'short',
-              }) +
-              ' ' +
-              new Date(experience.startDate).getFullYear(),
+            month: startDate.toFormat('MMM'),
+            year: startDate.toFormat('yyyy'),
+            full: startDate.toFormat('MMM yyyy'),
           };
+
           let endDateDisp;
-          if (experience.endDate === 'Present') {
+          if (endDate === 'Present') {
             endDateDisp = {
               month: 'Present',
               year: 'Present',
@@ -55,30 +60,21 @@ const SanityProvider = ({ children }) => {
             };
           } else {
             endDateDisp = {
-              month: new Date(experience.endDate).toLocaleString('default', {
-                month: 'short',
-              }),
-              year: new Date(experience.endDate).getFullYear(),
-              full:
-                new Date(experience.endDate).toLocaleString('default', {
-                  month: 'short',
-                }) +
-                ' ' +
-                new Date(experience.endDate).getFullYear(),
+              month: endDate.toFormat('MMM'),
+              year: endDate.toFormat('yyyy'),
+              full: endDate.toFormat('MMM yyyy'),
             };
           }
 
           return {
             ...experience,
-            startDate: new Date(experience.startDate),
+            startDate: startDate.toJSDate(),
             startDateDisp,
-            endDate:
-              experience.endDate === 'Present'
-                ? 'Present'
-                : new Date(experience.endDate),
+            endDate: endDate === 'Present' ? 'Present' : endDate.toJSDate(),
             endDateDisp,
           };
         });
+
         workExperiences.sort((a, b) => a.order - b.order);
         setWorkExperiences(workExperiences);
       };
