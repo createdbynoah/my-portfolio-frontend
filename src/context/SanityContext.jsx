@@ -34,7 +34,6 @@ const SanityProvider = ({ children }) => {
       };
       const fetchWorkExperiences = async () => {
         const experiences = await getWorkExperiences();
-        console.log('experiences', experiences);
         const workExperiences = experiences.map((experience) => {
           const startDate = DateTime.fromFormat(
             experience.startDate,
