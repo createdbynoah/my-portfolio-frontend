@@ -3,53 +3,29 @@ import { motion } from 'framer-motion';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../utils/client';
+import { urlFor } from '../../utils/client';
+import { useSanityContext } from '../../context/SanityContext';
 import './Testimonials.scss';
 
 const Testimonial = () => {
-  const [brands, setBrands] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
+  const { testimonials } = useSanityContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonialText, setTestimonialText] = useState('');
 
   const handleClick = (index) => {
+    testimonials[index].expanded = false;
     setCurrentIndex(index);
   };
 
   useEffect(() => {
-    const testimonialsQuery = '*[_type == "testimonials"]';
-    const brandsQuery = '*[_type == "brands"]';
-
-    const getTestimonials = async () => {
-      const raw = await client.fetch(testimonialsQuery);
-      const testimonials = raw.map((testimonial) => {
-        return {
-          ...testimonial,
-          imageUrl: urlFor(testimonial.imageUrl),
-          short:
-            testimonial.testimonial.length > 350
-              ? testimonial.testimonial.slice(0, 350) + '...'
-              : null,
-          expanded: false,
-        };
-      });
-      console.log(testimonials);
-      setTestimonials(testimonials);
+    if (testimonials && testimonials.length > 0) {
       setTestimonialText(
-        testimonials[0].short
-          ? testimonials[0].short
-          : testimonials[0].testimonial
+        testimonials[currentIndex].short
+          ? testimonials[currentIndex].short
+          : testimonials[currentIndex].testimonial
       );
-    };
-
-    const getBrands = async () => {
-      const brands = await client.fetch(brandsQuery);
-      setBrands(brands);
-    };
-
-    getTestimonials();
-    getBrands();
-  }, []);
+    }
+  }, [testimonials, currentIndex]);
 
   const currTestimonial = testimonials[currentIndex];
 
@@ -65,8 +41,11 @@ const Testimonial = () => {
 
   return (
     <>
+      <h2 className="head-text">
+        What People <span>Say</span>
+      </h2>
       {testimonials.length && (
-        <>
+        <div className="app__testimonials-container">
           <div className="app__testimonial-item app__flex">
             <div className="app__testimonial-content">
               <p className="p-text">
@@ -121,19 +100,8 @@ const Testimonial = () => {
               <HiChevronRight size={30} />
             </div>
           </div>
-        </>
+        </div>
       )}
-      {/* <div className="app__testimonial-brands app__flex">
-        {brands.map((brand) => (
-          <motion.div
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            key={brand._id}
-          >
-            <img src={urlFor(brand.imageUrl)} alt={brand.name} />
-          </motion.div>
-        ))}
-      </div> */}
     </>
   );
 };

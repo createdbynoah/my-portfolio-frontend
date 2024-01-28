@@ -1,0 +1,129 @@
+.tags__container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem 0.4rem;
+    margin-top: 1.2rem;
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.25rem 0.4rem;
+    }
+
+    .tag {
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        background-color: var(--background);
+        color: var(--text-400);
+        font-size: 0.6rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+       
+
+    }
+
+    .tag-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0.4rem;
+        color: var(--text-400);
+    }
+
+    @media screen and (max-width: 900px) {
+        flex-direction: row-reverse;
+        
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.exp__item {
+    background-color: var(--background-100);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid var(--background-100);
+    
+
+
+    h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--text-500);
+
+    }
+    h4 {
+        font-weight: 400;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+    }
+
+    h5 {
+        font-size: 0.8rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--text-400);
+        margin-bottom: 0.75rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--text-800);
+    }
+
+    &:hover {
+        // box-shadow: 0 0 25px #fef4f5;
+        border: 2px solid var(--text-500);
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 1rem;
+    }
+}
+
+
+.marker {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--text-500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    svg {
+        position: relative;
+        width: 10px;
+        height: 10px;
+        color: var(--background);
+    }
+}
+
+.marker__line {
+    opacity: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--text-500);
+
+    &.active {
+        opacity: 1;
+    }
+
+}

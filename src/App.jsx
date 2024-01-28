@@ -1,27 +1,14 @@
-import {
-  About,
-  Footer,
-  Header,
-  Skills,
-  Testimonials,
-  Works,
-} from './container';
-
-import { Navbar } from './components';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+import { SanityProvider } from './context/SanityContext.jsx';
 
 import './App.scss';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Header />
-      <About />
-      <Works />
-      <Skills />
-      <Testimonials />
-      <Footer />
-    </div>
+    <SanityProvider>
+      <RouterProvider router={router} />
+    </SanityProvider>
   );
 }
 

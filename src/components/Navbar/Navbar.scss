@@ -65,7 +65,7 @@
       font-weight: 500;
       transition: all 0.2s ease-in-out;
 
-      &:hover {
+      &:hover, &.active-link {
         color: var(--primary-700);
 
       }
@@ -111,6 +111,7 @@
     padding: 1rem;
 
     width: 80%;
+    max-width: 375px;
     height: 100vh;
 
     display: flex;
@@ -145,17 +146,20 @@
         margin: 1rem;
 
         a {
-          color: var(--text-700);
+          color: var(--text-400);
           text-decoration: none;
           text-transform: uppercase;
           font-weight: 500;
           font-size: 1rem;
           transition: all 0.2s ease-in-out;
 
-          &:hover {
-            color: var(--secondary);
+          
+
+          &:hover, &.active-link {
+            color: var(--primary-700);
           }
         }
+
       }
     }
     

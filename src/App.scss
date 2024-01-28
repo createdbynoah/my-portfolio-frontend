@@ -1,5 +1,5 @@
 .app {
-  background-color: var(--accent-50);
+  background-color: var(--background);
   font-family: var(--font-base);
 }
 
@@ -14,9 +14,33 @@
 .app__container {
   width: 100%;
   min-height: 100vh;
-
+  position: relative;
   display: flex;
   flex-direction: row;
+  padding-top: 72px;
+
+ 
+  &.row {
+    flex-direction: row;
+  }
+
+  &.col {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding-top: 67px;
+    
+  }
+  
+}
+
+button {
+  font-family: var(--font-base);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  
 }
 
 .app__flex {
@@ -25,14 +49,57 @@
   align-items: center;
 }
 
+.gap-1 {
+  gap: 0.5rem;
+}
+
 .app__wrapper {
   flex: 1;
   width: 100%;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 0 2rem 4rem;
 
   @media screen and (max-width: 450px) {
-    padding: 4rem 1rem 2rem;
+    padding: 4rem 0 2rem;
+  }
+}
+
+.app__more-link {
+  margin-top: 5rem;
+  padding:  1rem 2rem;
+
+  a {
+      text-decoration: none;
+      color: var(--text-400);
+      font-weight: 400;
+      font-size: 1.6rem;
+      transition: font-weight 0.2s ease, color 0.2s ease;
+      
+
+      &:hover {
+          color: var(--primary);
+          font-weight: 600;
+      }
+  
+  }
+
+  svg {
+      margin-left: 0.5rem;
+      position: relative;
+      top: 0.2rem;
+  }
+
+  &:hover {
+      color: var(--primary-500);
+  }
+
+  @media screen and (max-width: 900px) {
+
+      margin-top: 3rem;
+
+      a {
+          font-size: 1.4rem;
+      }
   }
 }
 
@@ -62,9 +129,6 @@
     color: var(--primary);
   }
 
-  @media screen and (min-width: 2000px) {
-    font-size: 4rem;
-  }
 
   @media screen and (max-width: 450px) {
     font-size: 2rem;
@@ -77,9 +141,7 @@
   color: var(--text-700);
   line-height: 1.5;
 
-  @media screen and (min-width: 2000px) {
-    font-size: 1.75rem;
-  }
+
 }
 
 .bold-text {
@@ -88,9 +150,6 @@
   color: var(--text);
   text-align: left;
 
-  @media screen and (min-width: 2000px) {
-    font-size: 2rem;
-  }
 
   @media screen and (max-width: 450px) {
     font-size: 0.9rem;
@@ -194,11 +253,15 @@
       background-color: var(--accent);
     }
 
-    @media screen and (min-width: 2000px) {
-      width: 20px;
-      height: 20px;
-    }
   }
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 500px) {

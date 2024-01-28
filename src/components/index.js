@@ -1,3 +1,15 @@
 export { default as Navbar } from './Navbar/Navbar';
+export { default as NavLinks } from './Navbar/NavLinks';
 export { default as NavigationDots } from './NavigationDots';
 export { default as SocialMedia } from './SocialMedia';
+export { default as Footer } from './Footer/Footer';
+export { default as ImageHeading } from './ImageHeading/ImageHeading';
+export { default as MoreLink } from './MoreLink';
+export { default as TimelineObject } from './TimelineObject/TimelineObject'; 
+export { default as ProjectButtons } from './ProjectButtons/ProjectButtons';
+export { default as Sidebar } from './Sidebar/Sidebar';
+export { default as SidebarTags } from './SidebarTags';
+export {default as ListItem} from './About/ListItem';
+export {default as JobsMobile} from './Resume/JobsMobile';
+export { default as JobsTimeline } from './Resume/JobsTimeline';
+export { default as Loading } from './Loading/Loading';
