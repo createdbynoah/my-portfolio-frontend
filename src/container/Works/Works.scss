@@ -20,8 +20,11 @@
         background-color: var(--white);
         color: var(--text);
         
-        cursor: pointer;
         transition: all 0.3s ease;
+
+        &.pointer {
+            cursor: pointer;
+        }
 
         &:hover {
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
@@ -98,17 +101,26 @@
     opacity: 0;
     transition: all 0.3s ease;
 
+    a {
+        cursor: pointer;
+
+        div:hover {
+            background-color: var(--accent-opaque);
+            border: 2px solid var(--accent);
+        }
+    }
+
     div {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         background-color: rgba(0,0,0,0.5);
         color: var(--text-white);
+        border: 2px solid transparent;
 
         margin: 1rem;
         font-family: var(--font-base);
         font-weight: 800;
-        cursor: pointer;
         transition: all 0.2s ease;
 
         svg {
@@ -116,6 +128,15 @@
             height: 50%;
             color: var(--white);
         }
+    }
+
+    p {
+        cursor: default;
+        
+        svg {
+            color: var(--text-300);
+        }
+
     }
 }
 

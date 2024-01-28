@@ -13,7 +13,7 @@ import './Works.scss';
 
 const Work = ({ project, hoverLinks }) => {
   return (
-    <div className="app__work-item app__flex">
+    <div className={`app__work-item app__flex ${!hoverLinks && 'pointer'}`}>
       {project.rank <= 2 && (
         <div className="app__work-star">
           <IoStar />
@@ -41,22 +41,38 @@ const Work = ({ project, hoverLinks }) => {
                 <AiFillEye />
               </motion.div>
             </a>
-            <a href={project.codeLink} target="_blank" rel="noreferrer">
+            {project.codeLink ? (
+              <a href={project.codeLink} target="_blank" rel="noreferrer">
+                <motion.div
+                  // whileHover={{ scale: [1, 0.9] }}
+                  whileInView={{ scale: [0, 1] }}
+                  transition={{ duration: 0.25 }}
+                  className="app__flex"
+                >
+                  <IoMdCode />
+                </motion.div>
+              </a>
+            ) : (
+              <p>
+                <motion.div
+                  // whileHover={{ scale: [1, 0.9] }}
+                  whileInView={{ scale: [0, 1] }}
+                  transition={{ duration: 0.25 }}
+                  className="app__flex"
+                >
+                  <IoMdCode />
+                </motion.div>
+              </p>
+            )}
+            <Link
+              to={`/projects/${project.slug.current}`}
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <motion.div
                 // whileHover={{ scale: [1, 0.9] }}
                 whileInView={{ scale: [0, 1] }}
                 transition={{ duration: 0.25 }}
-                className="app__flex"
-              >
-                <IoMdCode />
-              </motion.div>
-            </a>
-            <Link to={`/projects/${project.slug.current}`}>
-              <motion.div
-                // whileHover={{ scale: [1, 0.9] }}
-                whileInView={{ scale: [0, 1] }}
-                transition={{ duration: 0.25 }}
-                className="app__flex"
+                className="app__flex disabled"
               >
                 <HiDotsHorizontal />
               </motion.div>
