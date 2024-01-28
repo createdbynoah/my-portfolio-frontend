@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import {
   HomePage,
@@ -32,7 +32,6 @@ const router = createBrowserRouter([
         path: '/projects/:slug',
         element: <ProjectPage />,
       },
-
       {
         path: '/resume',
         element: <ResumePage />,
@@ -42,8 +41,12 @@ const router = createBrowserRouter([
         element: <JobPage />,
       },
       {
-        path: '*',
+        path: '/not-found',
         element: <NotFoundPage />,
+      },
+      {
+        path: '*',
+        element: <Navigate to="/not-found" />,
       },
     ],
   },
