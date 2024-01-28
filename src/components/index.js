@@ -12,3 +12,4 @@ export { default as SidebarTags } from './SidebarTags';
 export {default as ListItem} from './About/ListItem';
 export {default as JobsMobile} from './Resume/JobsMobile';
 export { default as JobsTimeline } from './Resume/JobsTimeline';
+export { default as Loading } from './Loading/Loading';
