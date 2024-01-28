@@ -26,7 +26,11 @@ const ImageHeading = ({
 
   const gradientColorValue = isDark ? gradientColor.dark : gradientColor.light;
   const textColorValue = isDark ? textColor.dark : textColor.light;
-  const titleText = title.h1 ? title.h1 : title;
+  const titleText = title.h1
+    ? title.h1
+    : typeof title === 'string'
+    ? title
+    : '';
   const subtitleText = title.h2 ? title.h2 : null;
 
   const bgPositionValue = `${bgPosition[0]}% ${bgPosition[1]}%`;
