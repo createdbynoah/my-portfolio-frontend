@@ -18,7 +18,7 @@
     --primary: #5a9cb5;
     --secondary: #98cee2;
     --accent: #57bbdf;
-    --accent-opaque: rgba(234, 246, 251, 0.85);
+    --accent-opaque: rgba(4, 17, 21, 0.85);
 
   }
   :root[data-theme="dark"] {
@@ -41,7 +41,7 @@
       --primary: #5a9cb5;
       --secondary: #98cee2;
       --accent: #57bbdf;
-      --accent-opaque: rgba(234, 246, 251, 0.85);
+      --accent-opaque: rgba(4, 17, 21, 0.85);
 
     }
   }
