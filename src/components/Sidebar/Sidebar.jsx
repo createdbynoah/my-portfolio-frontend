@@ -7,6 +7,7 @@ import './Sidebar.scss';
 const Sidebar = ({ item, buttons }) => {
   const isTags = item?.tags?.length;
   const isTools = item?.tools?.length;
+  const isClient = item?.client?.name;
 
   const startDate = item.startDateDisp;
   const endDate = item.endDateDisp;
@@ -42,6 +43,16 @@ const Sidebar = ({ item, buttons }) => {
       )}
 
       <div className="project__details-summary">
+        {isClient && (
+          <>
+            <h3>Client</h3>
+            <p>
+              <a href={item?.client?.url} target="_blank">
+                {item?.client?.name}
+              </a>
+            </p>
+          </>
+        )}
         <h3 className="project__details-summary-title">Summary</h3>
         <p className="project__details--summary-text">
           {item?.description_short || item?.summary}
