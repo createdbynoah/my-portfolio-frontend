@@ -70,8 +70,9 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: 400 }}
               transition={{ duration: 0.6, ease: 'easeInOut' }}
+              className="app__navbar-menu-links"
             >
-              <HiX onClick={() => setToggle(false)} />
+              <HiX onClick={() => setToggle(false)} id="close-nav-menu" />
               <ul>
                 <NavLinks
                   clickNavLink={handleNavLinkClick}
@@ -79,6 +80,7 @@ const Navbar = () => {
                   sidebar
                 />
               </ul>
+              <SocialMedia layout="row" />
             </motion.div>
           )}
         </AnimatePresence>

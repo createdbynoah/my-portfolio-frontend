@@ -18,7 +18,6 @@ const ProjectPage = () => {
       const foundProject = projects.find(
         (project) => project.slug.current === slug
       );
-      console.log('foundProject', foundProject);
 
       if (!foundProject) {
         navigate('/not-found');
