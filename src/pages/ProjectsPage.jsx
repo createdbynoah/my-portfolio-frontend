@@ -61,13 +61,7 @@ const ProjectsPage = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
         >
           {filterProjects.map((project, index) => (
-            <Link
-              to={`/projects/${project.slug.current}`}
-              key={project._id}
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              <Work project={project} hoverLinks={false} />
-            </Link>
+            <Work key={project._id} project={project} hoverLinks={false} />
           ))}
         </motion.div>
       </section>
