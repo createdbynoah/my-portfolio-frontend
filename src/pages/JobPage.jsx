@@ -18,7 +18,6 @@ const JobPage = () => {
       const foundWorkExperience = workExperiences.find(
         (exp) => exp.slug.current === slug
       );
-      console.log('foundExperience', foundWorkExperience);
 
       if (!foundWorkExperience) {
         navigate('/not-found');
