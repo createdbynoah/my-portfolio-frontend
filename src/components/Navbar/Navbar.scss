@@ -102,7 +102,7 @@
     color: var(--background);
   }
 
-  div {
+  .app__navbar-menu-links {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -115,7 +115,7 @@
     height: 100vh;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
 
@@ -123,7 +123,7 @@
 
     box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
 
-    svg {
+    svg#close-nav-menu {
       width: 35px;
       height: 35px;
       color: var(--secondary);
@@ -134,7 +134,6 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      height: 100%;
       width: 100%;
 
       display: flex;
@@ -173,4 +172,77 @@
     display: none;
   }
 
+}
+
+.app__social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 1rem;
+
+  div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--background-100);
+    margin: 0.25rem 0;
+    border: 1px solid var(--background-100);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      color: var(--text-500);
+    }
+
+    &:hover {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+
+      svg {
+        color: var(--background);
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      width: 48px;
+      height: 48px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+  }
+}
+
+.app__social.row {
+  flex-direction: row;
+  gap: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  div {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 6rem;
+    gap: 20px;
+  }
+}
+
+.app__social.col {
+  flex-direction: column;
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const NavLinks = ({ clickNavLink, activeLink, sidebar }) => {
   return (
     <>
-      <li className={!sidebar && 'app__flex p-text pointer'}>
+      <li className={!sidebar ? 'app__flex p-text pointer' : undefined}>
         {!sidebar && <div></div>}
         <Link
           to="/"
@@ -15,7 +15,7 @@ const NavLinks = ({ clickNavLink, activeLink, sidebar }) => {
           Home
         </Link>
       </li>
-      <li className={!sidebar && 'app__flex p-text pointer'}>
+      <li className={!sidebar ? 'app__flex p-text pointer' : undefined}>
         {!sidebar && <div></div>}
         <Link
           to="/about"
@@ -26,7 +26,7 @@ const NavLinks = ({ clickNavLink, activeLink, sidebar }) => {
           About
         </Link>
       </li>
-      <li className={!sidebar && 'app__flex p-text pointer'}>
+      <li className={!sidebar ? 'app__flex p-text pointer' : undefined}>
         {!sidebar && <div></div>}
         <Link
           to="/projects"
@@ -37,7 +37,7 @@ const NavLinks = ({ clickNavLink, activeLink, sidebar }) => {
           Projects
         </Link>
       </li>
-      <li className={!sidebar && 'app__flex p-text pointer'}>
+      <li className={!sidebar ? 'app__flex p-text pointer' : undefined}>
         {!sidebar && <div></div>}
         <Link
           to="/resume"

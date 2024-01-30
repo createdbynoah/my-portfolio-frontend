@@ -103,21 +103,6 @@ button {
   }
 }
 
-.copyright {
-  width: 100%;
-  padding: 2rem 0 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  p {
-    text-transform: uppercase;
-    color: var(--text);
-  }
-}
-
 .head-text {
   font-size: 2.75rem;
   font-weight: 800;
@@ -156,71 +141,7 @@ button {
   }
 }
 
-.app__social {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 1rem;
 
-  div {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--background-100);
-    margin: 0.25rem 0;
-    border: 1px solid var(--background-100);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: all 0.3s ease-in-out;
-
-    svg {
-      width: 15px;
-      height: 15px;
-      color: var(--text-500);
-    }
-
-    &:hover {
-      background-color: var(--secondary);
-      border-color: var(--secondary);
-
-      svg {
-        color: var(--background);
-      }
-    }
-
-    @media screen and (min-width: 2000px) {
-      width: 70px;
-      height: 70px;
-
-      margin: 0.5rem 0;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-}
-
-.app__social.row {
-  flex-direction: row;
-  gap: 10px;
-  padding-top: 0;
-  padding-bottom: 0;
-
-  div {
-    margin: 0;
-  }
-}
-
-.app__social.col {
-  flex-direction: column;
-}
 
 .app__navigation {
   // position: fixed;
@@ -265,12 +186,7 @@ button {
 }
 
 @media screen and (max-width: 500px) {
-  .app__navigation,
-  .app__social {
+  .app__navigation {
     display: none;
-  }
-
-  .copyright {
-    padding: 2rem;
   }
 }
