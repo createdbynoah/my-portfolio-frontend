@@ -51,7 +51,6 @@
     }
 
     a {
-        font-weight: 400;
         color: var(--primary);
         text-decoration: none;
 
@@ -81,6 +80,10 @@
         }
 
       
+    }
+
+    strong {
+        font-weight: 600;
     }
 
     @media screen and (max-width: 900px) {

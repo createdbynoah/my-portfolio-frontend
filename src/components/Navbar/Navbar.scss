@@ -21,20 +21,12 @@
   img {
     height: 28px;
     width: auto;
-
-    @media screen and (min-width: 2000px) {
-      height: 36px;
-      width: auto;
-    }
   }
 }
 
 #nav-links .p-text {
   font-size: 1rem;
-  @media screen and (min-width: 2000px) {
-    font-size: 1.25rem;
-    
-  }
+ 
 }
 
 .app__navbar-links {

@@ -46,7 +46,10 @@ const JobPage = () => {
                 value={job?.responsibilities}
                 components={{ listItem: ListItem }}
               />
-              <PortableText value={job?.description} />
+              <PortableText
+                value={job?.description}
+                components={{ listItem: ListItem }}
+              />
             </div>
           </section>
         </>
