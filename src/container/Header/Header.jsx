@@ -66,7 +66,7 @@ const Header = () => {
           </a>
           <a
             className="hero__btn outline"
-            href="/Noah-Rodgers-Resume-2024.pdf"
+            href="/Joseph-Noah-Rodgers-Resume-2025.pdf"
             target="_blank"
             onMouseEnter={() => handleEnter('resume')}
             onMouseLeave={() => handleLeave('resume')}

@@ -4,7 +4,7 @@ export default {
     website: 'https://www.noahrodgers.dev',
     phone: '972-268-2358',
     location: 'Arlington, TX',
-    resume: '/Noah-Rodgers-Resume-2024.pdf',
+    resume: '/Joseph-Noah-Rodgers-Resume-2025.pdf',
     social: {
             linkedin: 'https://www.linkedin.com/in/noahrodgers10/',
             facebook: 'https://www.facebook.com/noah.rodgers10',

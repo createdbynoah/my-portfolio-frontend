@@ -62,7 +62,7 @@ const AboutPage = () => {
               <h2>In My Freetime</h2>
               <p>
                 I enjoy spending time with my wife, playing with our dog, Scout,
-                and giggling with my (almost) 2-year-old son, Davis. On
+                and giggling with my (almost) 3-year-old son, Davis. On
                 vacation, you'll either find me in the mountains searching for a
                 quiet spot away from the busy or in a big city diving headfirst
                 into the chaos. I'm a classically-trained pianist and love to
