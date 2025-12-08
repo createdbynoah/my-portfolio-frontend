@@ -39,7 +39,7 @@ const Header = () => {
     <div className="grid__main">
       <div className="item-a">
         <h1>
-          Hi, I'm <span>Noah</span>.
+          Hi, I&apos;m <span>Noah</span>.
         </h1>
         {isMobile && (
           <div className="item-a__img">
@@ -59,6 +59,7 @@ const Header = () => {
             className="hero__btn"
             href="https://www.linkedin.com/in/noahrodgers10/"
             target="_blank"
+            rel="noreferrer"
             onMouseEnter={() => handleEnter('linkedin')}
             onMouseLeave={() => handleLeave('linkedin')}
           >
